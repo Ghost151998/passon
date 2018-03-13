@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sign Up|PassOn</title>
+</head>
+
+<body>
+
+	<div class="logo">
+		<img src="img/logo.png" alt="logo">
+	</div>
+
+	<div class="header">
+		<h2>Sign Up</h2>
+		<br>
+
+		<span>Already have an Account?</span>
+		<a href="user_login.html">Log In</a>
+	</div>
+
+
+
+	<div class="container" >
+
+		<div class="left" >
+				
+				<label for="reg">Registration No</label>
+				<input type="text" name="reg" id="reg" onclick="move('bar1','reg')"	autofocus>
+				<div	id="progress1">
+  						<div  	id="bar1"></div>
+				</div>
+		
+				<br>
+
+				<div class="name">
+					<label for="first_name">First Name</label>
+					<input type="text" name="first_name" id="first_name" onclick="move('bar2','first_name')">
+					<div	id="progress2">
+  						<div  	id="bar2"></div>
+					</div>
+
+					<label for="last_name">Last Name</label>
+					<input type="text" name="last_name" id="last_name" onclick="move('bar3','last_name')">
+					<div	id="progress3">
+  						<div  	id="bar3"></div>
+					</div>
+				</div>
+
+				<br>
+
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email" onclick="move('bar4','email')">
+				<div	id="progress4">
+  						<div  	id="bar4"></div>
+				</div>
+
+				<br>
+
+				<label for="mobile">Mobile Number</label>
+				<input type="text" name="mobile" id="mobile" onclick="move('bar5','mobile')">
+				<div	id="progress5">
+  						<div  	id="bar5"></div>
+				</div>
+
+				<br>
+
+				<label for="pass">Password</label>
+				<input type="password" name="pass" id="pass" onclick="move('bar6','pass')">
+				<div	id="progress6">
+  						<div  	id="bar6"></div>
+				</div>
+
+				<br>
+
+				<label for="repeat_pass">Password</label>
+				<input type="password" name="repeat_pass" id="repeat_pass" onclick="move('bar7','repeat_pass')">
+				<div	id="progress7">
+  						<div  	id="bar7"></div>
+				</div>
+
+			<br>
+			<div class="button">
+				<button class="login_button">Login</button>
+				<button class="cancel">Cancel</button>
+			</div>
+
+		</div>	
+
+		<div class="right">
+			<div class="social">
+				<a href="#" class="fa fa-facebook">
+					<span>Facebook</span>
+				</a>
+			</div>
+			<div class="contact">
+				<a href="#" class="fa fa-whatsapp">
+					<span>Contact</span>
+				</a>
+			</div>
+		</div>
+
+
+	</div>
+
+
+	<div class="footer">
+		<span>PASSON MNNIT DEVELOPED BY VASS</span>
+	</div>
+
+<script type="text/javascript" src="js/script.js"></script>
+
+</body>
+</html>

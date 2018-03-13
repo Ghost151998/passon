@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Admin LogIn|PassOn</title>
+</head>
+
+<body>
+
+	<div class="logo">
+		<img src="img/logo.png" alt="logo">
+	</div>
+
+	<div class="header_admin">
+		<h2>Admin  LogIn</h2>
+		<br>
+
+	</div>
+
+	<div class="container">
+
+		<div class="left">
+				
+				<label for="reg">User Name</label>
+				<input type="text" name="user_name" id="user_name" onclick="move('bar1','user_name')" autofocus>
+				<div	id="progress1">
+  						<div  	id="bar1"></div>
+				</div>
+
+				<br>
+
+				<label for="pass">Password</label>
+				<input type="Password" name="pass" id="pass" onclick="move('bar2','pass')">
+				<div id="progress2">
+  						<div id="bar2"></div>
+				</div>
+
+
+			<label >
+				<input type="checkbox" checked="checked" name="remember" id="remember"> <span class="checkmark"> Remember Me </span>
+			</label>
+
+			<br>
+			<button class="login_button">Login</button>
+		</div>
+
+
+		<div class="right">
+			<div class="social">
+				<a href="#" class="fa fa-facebook">
+					<span>Facebook</span>
+				</a>
+			</div>
+			<div class="contact">
+				<a href="#" class="fa fa-whatsapp">
+					<span>Contact</span>
+				</a>
+			</div>
+		</div>
+		
+	</div>
+
+	<div class="footer">
+		<span>PASSON MNNIT DEVELOPED BY VASS</span>
+	</div>
+
+<script type="text/javascript" src="js/script.js"></script>
+
+</body>
+</html>
