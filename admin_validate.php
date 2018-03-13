@@ -3,7 +3,7 @@
 	session_start();
 	include ("dbconfig.php");//Connection to database
 	$_SESSION  = array();//To clear session data
-	$redirect_to_success = "";//Set this to the page to redirect on verification
+	$redirect_to_success = "admin_main.php";//Set this to the page to redirect on verification
 	$redirect_to_failure = "admin_login.php";
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -15,8 +15,8 @@
 			if(mysqli_num_rows($result) > 0){// Execute admin_page in this block,set $_SESSION["admin_login"] = true;
 				$db_admin = mysqli_fetch_object($result);
 				$_SESSION["adminnum"] = $db_admin->adminnum;
-				echo "Welcome,<br>" . $admin_num;//Comment out this line,only for testing
-				//header("Location: ".$redirect_to_success);
+				//echo "Welcome,<br>" . $admin_num;//Comment out this line,only for testing
+				header("Location: ".$redirect_to_success);
 			}
 			else{//Die in this,or redirect to login
 				//echo "<br>Login Failed";

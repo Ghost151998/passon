@@ -5,8 +5,8 @@
 
 	$redirect_to_login = "user_login.php";
 
-	//Check if logged in
-	if(!$_SESSION["userreg"]){//Login failed.Redirect to login
+	//Check if user is logged in
+	if(!$_SESSION["userreg"]){//Login failed.Redirect to user_login.php
 		header("Location: " .$redirect_to_login);
 	}
 
@@ -31,16 +31,16 @@
 				}
 
 				//QUERY FOR QUEUEING OF BIKES
-				/*if($_POST["category"] == "books"){
-					$result = mysqli_query($conn,"INSERT INTO salerequest (reg,firstname,lastname,email,phonenum,address,userpassword) VALUES ('".$user_reg."','".$user_firstname."','".$user_lastname."','".$user_email."','".$user_phonenum."','".$user_address."','".$user_pwd."')");
+				/*if($_POST["category"] == "bikes"){
+					$result = mysqli_query($conn,"INSERT INTO salerequest (reg,category,author_edition,branch,sem,description,quality) VALUES ('".$_SESSION["userreg"]."','".$_POST["category"]."','".$book_author_edition."','".$book_branch."','".$book_sem."','".$description."','".$quality."')");
 				}
 
 				//QUERY FOR QUEUEING OF MISC
-				if($_POST["category"] == "books"){
-					$result = mysqli_query($conn,"INSERT INTO salerequest (reg,firstname,lastname,email,phonenum,address,userpassword) VALUES ('".$user_reg."','".$user_firstname."','".$user_lastname."','".$user_email."','".$user_phonenum."','".$user_address."','".$user_pwd."')");
+				if($_POST["category"] == "misc"){
+					$result = mysqli_query($conn,"INSERT INTO salerequest (reg,category,author_edition,branch,sem,description,quality) VALUES ('".$_SESSION["userreg"]."','".$_POST["category"]."','".$book_author_edition."','".$book_branch."','".$book_sem."','".$description."','".$quality."')");
 				}*/
 
-				echo "Entry Submitted for admin verification<br>Thank You!";
+				echo "Entry submitted for admin verification.<br><br>Thank You!";
 			}
 		}
 	}

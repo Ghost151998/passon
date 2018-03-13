@@ -3,7 +3,7 @@
 <!-- Need to introduce bikes and misc,use js to hide/disable the following rows on the basis of category -->
 <html>
 	<head>
-		<title>Want to Sell?</title>
+		<title>Want to sell through us?</title>
 	</head>
 	<body>
 		<h3>Item Details</h3>
@@ -46,7 +46,7 @@
 			<br>
 
 			Description:<br>
-			<textarea name="description" rows="10" cols="30"></textarea>
+			<textarea name="description" rows="5" cols="100"></textarea>
 			<br>
 			Quality:<br>
 			<select name="quality">
