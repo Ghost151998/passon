@@ -43,7 +43,7 @@
 								$results = mysqli_query($conn,"SELECT * FROM salerequest");
 								while($row = mysqli_fetch_array($results)){ ?>
 
-									<tr>
+									<tr>  <!-- value should be in text area-->
 										<td><?php echo $row['reg']?></td>
 										<td><?php echo $row['category']?></td>
 										<td><?php echo $row['author_edition']?></td>
