@@ -1,5 +1,5 @@
 <?php
-/*Establishing connection to passon database and starting session*/
+/*Establishing connection to passon database*/
 $host = "localhost";
 $username = "root" ;
 $password = "";
