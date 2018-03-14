@@ -20,49 +20,46 @@
 			</head>
 			<body>
 				<h3>Admin Main Page</h3>
-				<form action="auth_salereq_admin_page.php" method="post">
 					<!-- Use php code to query and populate a table with verification checkboxes and update DB accordingly on submit -->
-					<h3>Queued items for verification</h3>
-					<br>
-					<table>
-						<thead>
-							<tr>
-								<td>Uploaded By</td>
-								<td>Category</td>
-								<td>Author Data</td>
-								<td>Branch</td>
-								<td>Semester</td>
-								<td>Description</td>
-								<td>Quality</td>
-								<td>Verified Product?</td>
-							</tr>
-						</thead>
-						<tbody>
-							<?php
-								//mysql_select_db("passon");
-								$results = mysqli_query($conn,"SELECT * FROM salerequest");
-								while($row = mysqli_fetch_array($results)){ ?>
-
-									<tr>  <!-- value should be in text area-->
-										<td><?php echo $row['reg']?></td>
-										<td><?php echo $row['category']?></td>
-										<td><?php echo $row['author_edition']?></td>
-										<td><?php echo $row['branch']?></td>
-										<td><?php echo $row['sem']?></td>
-										<td><?php echo $row['description']?></td>
-										<td><?php echo $row['quality']?></td>
-										<td><input type="checkbox" name="confirm" value="accept"></td>
+				<h3>Queued items for verification</h3>
+				<br>
+				<table>
+					<thead>
+						<tr>
+							<td>Seller</td>
+							<td>Category</td>
+							<td>Author Data</td>
+							<td>Branch</td>
+							<td>Semester</td>
+							<td>Description</td>
+							<td>Quality</td>
+							<td>Verified Product?</td>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+							//mysql_select_db("passon");
+							$results = mysqli_query($conn,"SELECT * FROM salerequest WHERE deleted = 0");
+							while($row = mysqli_fetch_array($results)){ ?>
+								<form action="auth_salereq_admin_page.php" method="post">
+									<tr>
+										<td><input type="text" name="seller_reg" value="<?php echo $row['seller_reg']?>" required></td>
+										<td><input type="text" name="category" value="<?php echo $row['category']?>" required></td>
+										<td><input type="text" name="author_edition" value="<?php echo $row['author_edition']?>" required></td>
+										<td><input type="text" name="branch" value="<?php echo $row['branch']?>" required></td>
+										<td><input type="text" name="sem" value="<?php echo $row['sem']?>" required></td>
+										<!-- If time permits,change these to datalist -->
+										<td><input type="text" name="description" value="<?php echo $row['description']?>" required></td>
+										<td><input type="text" name="quality" value="<?php echo $row['quality']?>" required></td>
+										<td><input type="submit" name="confirm_check" value="Confirm"></td>
 										<!-- This is where a checkbox for validation and a checkbox for decline will go.Also,join the userinfo from users table into this table to contact and confirm. -->
 									</tr>
-
-									<?php 
-									}
-									?>
-							?>
-						</tbody>
-					</table>
-
-				</form>
+								</form>
+							<?php 
+							}
+						?>
+					</tbody>
+				</table>
 			</body>
 		</html>
 

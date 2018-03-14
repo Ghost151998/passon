@@ -19,11 +19,11 @@
 			$user_address =  mysqli_real_escape_string($conn, sanitize_input($_POST["user_address"]));
 			$user_pwd =  mysqli_real_escape_string($conn, sanitize_input($_POST["user_pwd"]));
 
-			// QUERY TO CHECK FOR EXISTING VALUES IN DB 
+			// QUERY TO CHECK FOR EXISTING VALUES IN DB
 			$result = mysqli_query($conn,"SELECT reg FROM users WHERE reg = '".$user_reg."'");
 
 			//print_r($result);
-			if(mysqli_num_rows($result) == 0){ // No matches found.Safe to place these values in DB
+			if(mysqli_num_rows($result) == 0){ // No matches found. Safe to place these values in DB
 				
 				// QUERY TO UPDATE THE DATABASE WITH VALUES TAKEN FROM FORM
 				$result = mysqli_query($conn,"INSERT INTO users (reg,firstname,lastname,email,phonenum,address,userpassword) VALUES ('".$user_reg."','".$user_firstname."','".$user_lastname."','".$user_email."','".$user_phonenum."','".$user_address."','".$user_pwd."')");

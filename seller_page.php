@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Seller Item Upload Page -->
-<!-- Need to introduce bikes and misc,use js to hide/disable the following rows on the basis of category -->
+<!-- Need to introduce bikes and misc,introduce prices,use js to hide/disable the following rows on the basis of category -->
 <html>
 	<head>
 		<title>Want to sell through us?</title>
@@ -10,7 +10,6 @@
 		<form action="sell_request_verification.php" method="post">
 			
 			Item Category:<br><br>
-			<!-- 1-Books 2-Bikes 3-Misc -->
 			<input type="radio" name="category" value="books" checked>Books<br>
 			<input type="radio" name="category" value="bikes">Bikes<br>
 			<input type="radio" name="category" value="misc">Misc<br>

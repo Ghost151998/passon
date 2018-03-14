@@ -45,8 +45,6 @@
 		}
 	}
 
-
-
 	function sanitize_input($data) {//sanitizing input
 		$data = trim($data);
 		$data = stripslashes($data);
