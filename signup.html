@@ -27,64 +27,87 @@
 	<div class="container" >
 
 		<div class="left" >
-				
+				<form action="user_signup_validate.php" method="post" name="user_signup_form" id="user_signup_form">
+
 				<label for="reg">Registration No</label>
-				<input type="text" name="reg" id="reg" onclick="move('bar1','reg')"	autofocus>
+				<input type="text" name="reg" id="reg" onclick="move('bar1','reg')"	 onkeyup="error_check('reg','error_reg')" autofocus>
 				<div	id="progress1">
   						<div  	id="bar1"></div>
 				</div>
+				<label for="reg" class="error" id="error_reg"></label>
 		
 				<br>
 
 				<div class="name">
+
 					<label for="first_name">First Name</label>
-					<input type="text" name="first_name" id="first_name" onclick="move('bar2','first_name')">
+					<input type="text" name="first_name" id="first_name" onclick="move('bar2','first_name')" onkeyup="error_check('first_name','error_first_name')" >
+
 					<div	id="progress2">
   						<div  	id="bar2"></div>
 					</div>
+					<label for="first_name" class="error" id="error_first_name"></label>
+
+					<br>
 
 					<label for="last_name">Last Name</label>
-					<input type="text" name="last_name" id="last_name" onclick="move('bar3','last_name')">
+					<input type="text" name="last_name" id="last_name" onclick="move('bar3','last_name')" onkeyup="error_check('last_name','error_last_name')" >
+
 					<div	id="progress3">
   						<div  	id="bar3"></div>
 					</div>
+					<label for="last_name" class="error" id="error_last_name"></label>
+
 				</div>
 
 				<br>
 
 				<label for="email">Email</label>
-				<input type="email" name="email" id="email" onclick="move('bar4','email')">
+				<input type="email" name="email" id="email" onclick="move('bar4','email')" onkeyup="error_check('email','error_email')" >
 				<div	id="progress4">
   						<div  	id="bar4"></div>
 				</div>
+				<label for="email" class="error" id="error_email"></label>
 
 				<br>
 
 				<label for="mobile">Mobile Number</label>
-				<input type="text" name="mobile" id="mobile" onclick="move('bar5','mobile')">
+				<input type="text" name="mobile" id="mobile" onclick="move('bar5','mobile')" onkeyup="error_check('mobile','error_mobile')" >
 				<div	id="progress5">
   						<div  	id="bar5"></div>
 				</div>
+				<label for="mobile" class="error" id="error_mobile"></label>
+
+				<br>
+
+				<label for="address">Address</label>
+				<input type="text" name="address" id="address" onclick="move('bar6','address')" onkeyup="error_check('address','error_address')" >
+				<div	id="progress6">
+  						<div  	id="bar6"></div>
+				</div>
+				<label for="address" class="error" id="error_address"></label>
 
 				<br>
 
 				<label for="pass">Password</label>
-				<input type="password" name="pass" id="pass" onclick="move('bar6','pass')">
-				<div	id="progress6">
-  						<div  	id="bar6"></div>
-				</div>
-
-				<br>
-
-				<label for="repeat_pass">Password</label>
-				<input type="password" name="repeat_pass" id="repeat_pass" onclick="move('bar7','repeat_pass')">
+				<input type="password" name="pass" id="pass" onclick="move('bar7','pass')" onkeyup="error_check('pass','error_pass')" >
 				<div	id="progress7">
   						<div  	id="bar7"></div>
 				</div>
+				<label for="pass" class="error" id="error_pass"></label>
+
+				<br>
+
+				<label for="repeat_pass">Repeat Password</label>
+				<input type="password" name="repeat_pass" id="repeat_pass" onclick="move('bar8','repeat_pass')" onkeyup="verifypass('pass','repeat_pass','error_repeat_pass')" >
+				<div	id="progress8">
+  						<div  	id="bar8"></div>
+				</div>
+				<label for="repeat_pass" class="error" id="error_repeat_pass"></label>
 
 			<br>
 			<div class="button">
-				<button class="login_button">Login</button>
+				<button class="login_button" id="login_button" onclick="formvalidate('user_signup_form')">Login</button>
 				<button class="cancel">Cancel</button>
 			</div>
 
@@ -110,6 +133,9 @@
 	<div class="footer">
 		<span>PASSON MNNIT DEVELOPED BY VASS</span>
 	</div>
+
+
+	<div id="snackbar">Please fill all fields</div>
 
 <script type="text/javascript" src="js/script.js"></script>
 

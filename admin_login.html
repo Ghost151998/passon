@@ -23,20 +23,23 @@
 	<div class="container">
 
 		<div class="left">
+			<form action="admin_validate.php" method="post" name="admin_login_form" id="admin_login_form">
 				
 				<label for="reg">User Name</label>
-				<input type="text" name="user_name" id="user_name" onclick="move('bar1','user_name')" autofocus>
+				<input type="text" name="user_name" id="first_name" onclick="move('bar1','user_name')"  onkeyup="error_check('first_name','error_first_name')"  autofocus>
 				<div	id="progress1">
   						<div  	id="bar1"></div>
 				</div>
+				<label for="first_name" class="error" id="error_first_name"></label>
 
 				<br>
 
 				<label for="pass">Password</label>
-				<input type="Password" name="pass" id="pass" onclick="move('bar2','pass')">
+				<input type="Password" name="pass" id="pass" onclick="move('bar2','pass')" onkeyup="error_check('pass','error_pass')">
 				<div id="progress2">
   						<div id="bar2"></div>
 				</div>
+				<label for="pass" class="error" 	id="error_pass"></label>
 
 
 			<label >
@@ -44,7 +47,8 @@
 			</label>
 
 			<br>
-			<button class="login_button">Login</button>
+			<button class="login_button" onclick="formvalidate(admin_login_forms)">Login</button>
+		</form>
 		</div>
 
 
@@ -66,6 +70,8 @@
 	<div class="footer">
 		<span>PASSON MNNIT DEVELOPED BY VASS</span>
 	</div>
+
+	<div id="snackbar">Please fill all fields</div>
 
 <script type="text/javascript" src="js/script.js"></script>
 

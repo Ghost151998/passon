@@ -25,28 +25,33 @@
 	<div class="container">
 
 		<div class="left">
-				
+				<form action="user_login_validate.php" method="post" name="user_login_form" id="user_login_form">
+
 				<label for="reg">Registration No</label>
-				<input type="text" name="reg" id="reg" onclick="move('bar1','reg')" >
+				<input type="text" name="reg" id="reg" onkeyup="error_check('reg','error_reg')" 	onclick="move('bar1','reg')" autofocus>
 				<div	id="progress1">
   						<div  	id="bar1"></div>
 				</div>
+				<label for="reg" class="error" id="error_reg"></label>
 		
 				<br>
 
 				<label for="pass">Password</label>
-				<input type="Password" name="pass" id="pass" onclick="move('bar2','pass')">
+				<input type="Password" name="pass" id="pass" onkeyup="error_check('pass','error_pass')" onclick="move('bar2','pass')">
 				<div id="progress2">
   						<div id="bar2"></div>
 				</div>
+				<label for="pass" class="error" 	id="error_pass"></label>
 
 
 			<label >
 				<input type="checkbox" checked="checked" name="remember" id="remember"> <span class="checkmark"> Remember Me </span>
 			</label>
 
-			<br>
-			<button class="login_button">Login</button>
+			
+			<button class="login_button" id="login_button" onclick="formvalidate('login_button')">Login</button>
+
+		</form>
 		</div>
 
 
@@ -69,8 +74,9 @@
 		<span>PASSON MNNIT DEVELOPED BY VASS</span>
 	</div>
 
+	<div id="snackbar">Please fill all fields</div>
+
 <script type="text/javascript" src="js/script.js"></script>
-<script type="text/javascript scriptjs/jquery-3.3.1.js"></script>
 
 </body>
 
