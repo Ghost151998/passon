@@ -7,7 +7,7 @@
 	$redirect_to_login = "user_login.php";
 
 	//Check if user is logged in
-	if(!$_SESSION["userreg"]){//Login failed.Redirect to user_login.php
+	if(!$_SESSION["user_reg"]){//Login failed.Redirect to user_login.php
 		header("Location: " .$redirect_to_login);
 	}
 
@@ -25,8 +25,11 @@
 
 	//if($_POST["category"] == "books"){ //CHANGE THE CONDITION TO VERIFY IF THIS PAGE IS FOR BOOKS...THEN OPEN THE BRACKETS @if_books
 		
-		//$id = 1; //Insert the id received from the page click of the item on the books list
+		$id = 1; //Insert the id received from the page click of the item on the books list
 
+		//Set this information on all books,bikes,and misc description pages since this will help form submission to cart
+		$_SESSION["category"] = "books";
+		$_SESSION["item_id"] = $id;
 		$results = mysqli_query($conn,"SELECT * FROM books WHERE id = '".$id."'");//Take the info of item from database
 		//print_r($results);
 		$row = mysqli_fetch_array($results); ?> <!-- take all entries from table and fill them in html -->
@@ -38,7 +41,7 @@
 				<?php } ?>
 				Description:<br><?php echo $row['description']; ?><br>
 				Quality:<br><?php echo $row['quality']; ?><br>
-				<form action="" method="post">
+				<form action="cart_handle.php" method="post">
 					<input type="submit" value="Add To Cart" name="add_to_cart">
 					<!--name+= _book_'.<?phpecho $row->id ?>.' -->
 				</form>

@@ -14,9 +14,9 @@
 			//print_r($result);
 			if(mysqli_num_rows($result) > 0){ // Refer to main page in this block
 				$db_user = mysqli_fetch_object($result);
-				$_SESSION["userreg"] = $db_user->reg;
+				$_SESSION["user_reg"] = $db_user->reg;
 				$_SESSION["username"] = $db_user->firstname;
-				//echo "<br>Welcome, " . $_SESSION["username"];//Comment out this line,only for testing
+				echo "<br>Welcome, " . $_SESSION["username"];//Comment out this line,only for testing
 				//header("Location: ".$redirect_to_success);
 			}
 			else{//Die in this,or redirect to login on failure

@@ -6,7 +6,7 @@
 	$redirect_to_login = "user_login.php";
 
 	//Check if user is logged in
-	if(!$_SESSION["userreg"]){//Login failed.Redirect to user_login.php
+	if(!$_SESSION["user_reg"]){//Login failed.Redirect to user_login.php
 		header("Location: " .$redirect_to_login);
 	}
 

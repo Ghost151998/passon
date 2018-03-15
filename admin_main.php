@@ -20,7 +20,10 @@
 			</head>
 			<body>
 				<h3>Admin Main Page</h3>
+				<?php echo "Welcome,".$_SESSION["admin_name"]."<br>"?>
 					<!-- Use php code to query and populate a table with verification checkboxes and update DB accordingly on submit -->
+				
+				<!-- Table for undelivered items -->
 				<h3>Queued items for verification</h3>
 				<br>
 				<table>
@@ -60,6 +63,9 @@
 						?>
 					</tbody>
 				</table>
+
+
+
 			</body>
 		</html>
 

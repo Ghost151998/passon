@@ -10,11 +10,12 @@
 		if (!empty($_POST["admin_num"]) && !empty($_POST["admin_pwd"])) {
 			$admin_num =  mysqli_real_escape_string($conn, sanitize_input($_POST["admin_num"]));
 			$admin_pwd =  mysqli_real_escape_string($conn, sanitize_input($_POST["admin_pwd"]));
-			$result = mysqli_query($conn,"SELECT adminnum FROM admins WHERE adminnum = '".$admin_num."' AND adminpassword ='".$admin_pwd."'");
+			$result = mysqli_query($conn,"SELECT adminnum,name FROM admins WHERE adminnum = '".$admin_num."' AND adminpassword ='".$admin_pwd."'");
 			//print_r($result);
 			if(mysqli_num_rows($result) > 0){// Execute admin_page in this block,set $_SESSION["admin_login"] = true;
 				$db_admin = mysqli_fetch_object($result);
 				$_SESSION["adminnum"] = $db_admin->adminnum;
+				$_SESSION["admin_name"] = $db_admin->name;
 				//echo "Welcome,<br>" . $admin_num;//Comment out this line,only for testing
 				header("Location: ".$redirect_to_success);
 			}
