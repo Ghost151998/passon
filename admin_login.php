@@ -1,3 +1,6 @@
+<?php 
+	include ("session_refresh.php");
+?>
 <!DOCTYPE html>
 <!-- Admin Login Page -->
 <html>
@@ -7,10 +10,10 @@
 	<body>
 		<h3>Admin Login</h3><!-- Apply checks for username and password length and format -->
 		<form action="admin_validate.php" method="post">
-			Admin Number:<br>
-			<input type="text" name="admin_num" required>
+			Admin Code:<br>
+			<input type="text" name="admin_code" required>
 			<br>Password:<br>
-			<input type="password" name="admin_pwd" required>
+			<input type="password" name="admin_password" required>
 			<br>
 			<input type="submit" value="Login" name="admin_submitbtn">
 			<input type="reset" value="Back" name="admin_backbtn">

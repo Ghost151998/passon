@@ -23,7 +23,7 @@
 				// QUERY TO UPDATE THE DATABASE WITH VALUES TAKEN FROM FORM
 				$result = mysqli_query($conn,"INSERT INTO users (reg,firstname,lastname,email,phonenum,address,userpassword) VALUES ('".$user_reg."','".$user_firstname."','".$user_lastname."','".$user_email."','".$user_phonenum."','".$user_address."','".$user_pwd."')");
 
-				$_SESSION["userreg"] = $user_reg;
+				$_SESSION["user_reg"] = $user_reg;
 				$_SESSION["username"] = $user_firstname;
 				echo "<br>Successfully signed up, " . $_SESSION["username"];//Comment out this line,only for testing
 				//header("Location: ".$redirect_to_success);//redirect to main page

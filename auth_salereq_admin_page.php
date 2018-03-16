@@ -1,5 +1,5 @@
 <?php
-/*Submits verified salerequest data to server from  admin_main*/
+/*Submits verified salerequest data to server from admin_main*/
 	session_start();
 	include ("dbconfig.php");//Connection to database
 

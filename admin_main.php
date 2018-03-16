@@ -6,7 +6,7 @@
 
 	$redirect_to_admin_login = "admin_login.php";
 
-	if(!$_SESSION["adminnum"]){ //Admin not logged in.Redirect to login
+	if(!$_SESSION["admin_code"]){ //Admin not logged in.Redirect to login
 		$_SESSION = array();
 		header("Location: ".$redirect_to_admin_login);
 	}
@@ -31,7 +31,8 @@
 						<tr>
 							<td>Seller</td>
 							<td>Category</td>
-							<td>Author Data</td>
+							<td>Author</td>
+							<td>Edition</td>
 							<td>Branch</td>
 							<td>Semester</td>
 							<td>Description</td>
@@ -46,9 +47,10 @@
 							while($row = mysqli_fetch_array($results)){ ?>
 								<form action="auth_salereq_admin_page.php" method="post">
 									<tr>
-										<td><input type="text" name="seller_reg" value="<?php echo $row['seller_reg']?>" required></td>
+										<td><input type="text" name="seller" value="<?php echo $row['seller']?>" required></td>
 										<td><input type="text" name="category" value="<?php echo $row['category']?>" required></td>
-										<td><input type="text" name="author_edition" value="<?php echo $row['author_edition']?>" required></td>
+										<td><input type="text" name="author" value="<?php echo $row['author']?>" required></td>
+										<td><input type="text" name="edition" value="<?php echo $row['edition']?>" required></td>
 										<td><input type="text" name="branch" value="<?php echo $row['branch']?>" required></td>
 										<td><input type="text" name="sem" value="<?php echo $row['sem']?>" required></td>
 										<!-- If time permits,change these to datalist -->

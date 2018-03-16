@@ -1,3 +1,9 @@
+<!-- BUG: AFTER LOGGING ONCE AND GOING BACK TO LOGIN PAGE AND REFRESHING,USER IS STILL ABLE TO OPEN PAGES ONLY ACCESSIBLE TO LOGGED IN USERS -->
+<?php 
+	include ("session_refresh.php");
+	print_r($_SESSION);
+?>
+
 <!DOCTYPE html>
 <!-- User Login Page -->
 <html>
@@ -10,7 +16,7 @@
 			Registration Number:<br>
 			<input type="text" name="user_reg" required>
 			<br>Password:<br>
-			<input type="password" name="user_pwd" required>
+			<input type="password" name="user_password" required>
 			<br>
 			<input type="submit" value="Login" name="user_login_submitbtn">
 			<input type="reset" value="Back" name="user_login_backbtn">
