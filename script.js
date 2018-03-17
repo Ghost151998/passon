@@ -190,3 +190,30 @@ function disable_sem()
   }
 }
 
+
+//list page accordion script
+
+(function() {
+var acc = document.getElementsByClassName("accordion");
+var i,j;
+var p= document.getElementsByClassName("panel");
+
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+
+        for(j=0;j<p.length;j++){
+          p[j].style.display="none";
+        } 
+        
+
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
+})();
