@@ -1,0 +1,38 @@
+.list{
+    margin-top: 10%;
+}
+
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    margin-left: 15%;
+    padding: 1.5%;
+    width: 70%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: 20px;
+    transition: 0.4s;
+    height: 1%;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc; 
+}
+
+.panel {
+    display: none;
+    background-color: white;
+    overflow: hidden;
+}
+
+#panel_1{
+    display: block;
+}
+
+.sem1_img{
+    width: 10%;
+    max-height: 10%;
+    float: left;
+}
