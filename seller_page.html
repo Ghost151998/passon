@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/seller.css">
+	<title>Want to sell through us?</title>
+</head>
+
+
+<body>
+
+	<div class="logo">
+		<img src="img/logo.png" alt="logo">
+	</div>
+
+	<div class="header" id="seller_header">
+		<h2 id="seller_h2">Seller Form</h2>
+		<span>Enter details of product you want to sell</span>
+	</div>
+
+
+
+	<div class="category_select">
+		
+		<label class="radio_label">Books
+			<input type="radio" name="category" id="radio_book" class="radio_btn" value="book" 	checked="checked"  onclick="display_form('book')">
+			<span class="radio_check"></span>
+		</label>
+
+		<label class="radio_label">Bicycle
+			<input type="radio" name="category" id="radio_bike" class="radio_btn" value="bicycle" onclick="display_form('bike')">
+			<span class="radio_check"></span>
+		</label>
+
+		<label class="radio_label">Misc
+			<input type="radio" name="category" id="radio_misc" class="radio_btn" value="misc" onclick="display_form('misc')"> 
+			<span class="radio_check"></span>
+		</label>
+	</div>
+
+
+<div id="form">
+
+	<form action="sell_request_verification.php" method="post" >
+	<div id="book">
+		
+		<label for="book_author">Author</label>		
+		<input type="text" name="book_author" id="book_author"	onclick="move('bar1','book_author')"  onkeyup="error_check('book_author','error_book_author')">	
+
+		<div	id="progress1">
+  			<div  	id="bar1"></div>
+		</div>
+		<label for="book_author" class="error" id="error_book_author"></label>	
+		<br><br>
+
+		<label for="book_edition">Edition</label>		
+		<input type="text" name="book_edition" id="book_edition" onclick="move('bar2','edition_author')" onkeyup="error_check('book_edition','error_book_edition')">	
+
+		<div	id="progress2">
+  			<div  	id="bar2"></div>
+		</div>
+		<label for="book_edition" class="error" id="error_book_edition"></label>	
+		<br><br>
+			
+			<select name="book_branch" class="custom-select" id="branch" onclick="disable_sem(); error_check_select('branch','error_book_branch')">
+				<option selected value="null">Branch</option>
+				<option value="cseit" >CSE/IT</option>
+				<option value="ece">ECE</option>
+				<option value="chem">Chemical</option>
+				<option value="civ">Civil</option>
+				<option value="biot">Biotechnology</option>
+				<option value="mechprod">Mechanical/Production</option>
+				<option value="ee">Electrical</option>
+				<option value="other">Other Books</option>
+
+			</select><br>
+			<label for="book_branch" class="error" id="error_book_branch"></label>
+			<br>		
+
+			<select name="book_sem" class="custom-select" id="sem"  onclick="error_check_select('sem','error_book_sem')"> 
+				<option value="null" selected>Semester</option>
+				<option value="1">1st</option>
+				<option value="2">2nd</option>
+				<option value="3">3rd</option>
+				<option value="4">4th</option>
+				<option value="5">5th</option>
+				<option value="6">6th</option>
+				<option value="7">7th</option>
+				<option value="8">8th</option>
+			</select><br>
+			<label for="sem" class="error" id="error_book_sem"></label>
+			<br>
+	
+
+		<div class="image" id="book_image">
+			<input type="file" name="image1_book" id="image1_book">
+			<input type="file" name="image2_book" id="image2_book">
+			<input type="file" name="image3_book" id="image3_book">
+		</div>
+		<label for="book_image" class="error" id="error_book_image"></label>
+		<br>
+
+		<label for="book_price">Price(Rs)</label>
+		<input type="text" name="book_price" id="book_price" onclick="move('bar3','book_price')"	onkeyup="error_check('book_price','error_book_price')">
+
+		<div	id="progress3">
+  			<div  	id="bar3"></div>
+		</div>
+		<label for="book_price" class="error" id="error_book_price"></label>
+		<br><br>
+
+
+		<label for="book_description">Description</label>
+		<textarea name="book_description" rows="5" cols="100"></textarea>
+		<label for="book_description" class="error" id="error_book_description"></label>
+			<br><br>
+
+		<label for="book_quality">Quality</label>
+		<select name="book_quality" class="custom-select" id="book_quality" onclick="error_check_select('book_quality','error_book_quality')">
+			<option value="null" selected="">Quality</option>
+			<option value="new">New</option>
+			<option value="good" >Good</option>
+			<option value="ok">Okay</option>
+			<option value="poor">Poor</option>
+		</select><br>
+		<label for="book_quality" class="error" id="error_book_quality"></label>
+		<br><br>
+
+		<input type="submit" value="Submit for Verification" name="seller_submitbtn" class="button">
+		<input type="reset" value="Reset" name="seller_backbtn" class="button">
+
+	</div>
+	</form>
+
+
+	<form action="sell_request_verification.php" method="post" >
+	<div id="bike">
+
+		<label for="bike_brand">Brand</label>		
+		<input type="text" name="bike_brand" id="bike_brand"  onclick="move('bar4','bike_brand')"	onkeyup="error_check('bike_brand','error_bike_brand')">
+		<div	id="progress4">
+  			<div  	id="bar4"></div>
+		</div>
+		<label for="bike_brand" class="error" id="error_bike_brand"></label>	
+		<br><br>
+
+		
+<!--Bug    both radio buttons getting checked simultaneously-->
+
+		<label class="radio_label">Non-Gear
+			<input type="radio" name="bike_no_gear" class="radio_btn" value="bike_no_gear" 	checked="checked" >
+			<span class="radio_check"></span>
+		</label>
+
+		<label class="radio_label">Gear
+			<input type="radio" name="bike_gear" class="radio_btn" value="bike_gear" >
+			<span class="radio_check"></span>
+		</label>
+
+		<br><br><br>
+
+		<div class="image">
+			<input type="file" name="image1_bike" id="image1_bike">
+			<input type="file" name="image2_bike" id="image2_bike">
+			<input type="file" name="image3_bike" id="image3_bike">
+
+		</div>
+		<br><br>
+
+		<label for="bike_color">Color</label>		
+		<input type="text" name="bikr_color" id="bike_color"   onclick="move('bar5','bike_color')"	onkeyup="error_check('bike_color','error_bike_color')">
+
+		<div	id="progress5">
+  			<div  	id="bar5"></div>
+		</div>
+		<label for="bike_color" class="error" id="error_bike_color"></label>	
+		<br><br>
+
+
+
+		<label for="bike_price">Price(Rs)</label>
+		<input type="text" name="bike_price" id="bike_price"  onclick="move('bar6','bike_price')"	onkeyup="error_check('bike_price','error_bike_price')">
+		
+		<div	id="progress6">
+  			<div  	id="bar6"></div>
+		</div>
+		<label for="bike_price" class="error" id="error_bike_price"></label>	
+		<br><br>
+
+
+
+		<label for="bike_description">Description</label>
+		<textarea name="bike_description" rows="5" cols="100"></textarea>
+		<br><br>
+
+		<label for="bike_quality">Quality</label>
+		<select name="bike_quality" class="custom-select" id="bike_quality" 	onclick="error_check_select('bike_quality','error_bike_quality')">
+			<option value="null" selected>Quality</option>
+			<option value="new">New</option>
+			<option value="good" >Good</option>
+			<option value="ok">Okay</option>
+			<option value="poor">Poor</option>
+		</select><br>
+		<label for="bike_quality" class="error" id="error_bike_quality"></label>
+		<br><br>
+
+		<input type="submit" value="Submit for Verification" name="seller_submitbtn" class="button">
+		<input type="reset" value="Reset" name="seller_backbtn" class="button">
+		
+	</div>
+	</form>
+
+
+
+	<form action="sell_request_verification.php" method="post" >
+	<div id="misc">
+
+		<label for="misc_name">Item Name</label>		
+		<input type="text" name="misc_name" id="misc_name" onclick="move('bar7','misc_name')"	onkeyup="error_check('misc_name','error_misc_name')" >
+		
+		<div	id="progress7">
+  			<div  	id="bar7"></div>
+		</div>
+		<label for="misc_name" class="error" id="error_misc_name"></label>	
+		<br><br>
+
+		<div class="image">
+			<input type="file" name="image1_misc" id="image1_misc">
+			<input type="file" name="image2_misc" id="image2_misc">
+			<input type="file" name="image3_misc" id="image3_misc">
+
+		</div>
+		<br><br>
+
+		<label for="misc_price">Price(Rs)</label>
+		<input type="text" name="misc_price" id="misc_price" onclick="move('bar8','misc_price')"	onkeyup="error_check('misc_price','error_misc_price')">
+		
+		<div	id="progress8">
+  			<div  	id="bar8"></div>
+		</div>
+		<label for="misc_price" class="error" id="error_misc_price"></label>	
+		<br><br>
+
+
+
+		<label for="misc_description">Description</label>
+		<textarea name="misc_description" rows="5" cols="100"></textarea>
+		<br><br>
+
+		<label for="misc_quality">Quality</label>
+		<select name="misc_quality" class="custom-select" id="misc_quality"	onclick="error_check_select('misc_quality','error_misc_quality')">
+			<option value="null" selected>Quality</option>
+			<option value="new">New</option>
+			<option value="good">Good</option>
+			<option value="ok">Okay</option>
+			<option value="poor">Poor</option>
+		</select><br>
+		<label for="misc_quality" class="error" id="error_misc_quality"></label>
+		<br><br>
+
+		<input type="submit" value="Submit for Verification" name="seller_submitbtn" class="button">
+		<input type="reset" value="Reset" name="seller_backbtn" class="button">	
+
+	</div>
+	</form>
+</div>
+
+	
+
+	
+
+
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
