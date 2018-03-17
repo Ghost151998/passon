@@ -29,13 +29,17 @@
 				<input type="text" name="book_author" required>
 				<br><br>
 
+				Title:<br>
+				<input type="text" name="book_title" required>
+				<br><br>
+
 				Edition:<br>
 				<input type="text" name="book_edition" required>
 				<br><br>			
 
 				Branch:<br>
 				<select name="book_branch">
-					<option value="null" selected>Branch</option>
+					<option selected>Branch</option> <!-- SHOULD SEND NULL VALUE -->
 					<option value="cseit">CSE/IT</option>
 					<option value="ece">ECE</option>
 					<option value="chem">Chemical</option>
@@ -48,7 +52,7 @@
 
 				Semester:<br>
 				<select name="book_sem">
-					<option value="null" selected>Sem</option>
+					<option selected>Sem</option> <!-- SHOULD SEND NULL VALUE -->
 					<option value="1">1st</option>
 					<option value="2">2nd</option>
 					<option value="3">3rd</option>

@@ -1,5 +1,6 @@
 <?php 
 	include ("session_refresh.php");
+	print_r($_SESSION);
 ?>
 <!DOCTYPE html>
 <!-- Admin Login Page -->
