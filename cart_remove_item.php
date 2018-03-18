@@ -1,0 +1,22 @@
+<!-- Remove Item from Cart -->
+<!-- SUGGESTION: CAN SET SNACKBAR TO UNDO DELETE BY SETTING is_deleted = 1; -->
+<?php 
+	session_start();
+	include ("dbconfig.php");//Connection to database
+
+	$redirect_to_cart = "cart.php";
+	$redirect_to_user_login = "user_login.php";
+
+	//Test variables
+	$_SESSION["category"] = "bikes";
+	$_SESSION["item_id"] = 1;
+
+	//Check if user is logged in
+	if(!$_SESSION["user_reg"]){//Login failed.Redirect to user_login.php
+		header("Location: " .$redirect_to_user_login);
+	}
+	print_r($_SESSION);
+
+	mysqli_query($conn,"DELETE FROM cart WHERE item_id = '".$_SESSION["item_id"]."' AND item_category = '".$_SESSION["category"]."'  AND cart.reg ='".$_SESSION["user_reg"]."'");
+	header("Location: ".$redirect_to_cart);
+?>

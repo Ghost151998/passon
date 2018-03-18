@@ -10,11 +10,11 @@
 	//Check if user is logged in
 	if(!$_SESSION["user_reg"]){//Login failed.Redirect to user_login.php
 		header("Location: " .$redirect_to_user_login);
-
-		$cart_total = 0;
 	}
 
 	else{
+		//print_r($_SESSION);
+		$cart_total = 0;
 ?>
 
 			<html>
@@ -45,7 +45,6 @@
 										</td>
 									</tr>
 								<?php 
-								global $cart_total;
 								$cart_total = $cart_total + $row['price'];
 								} 
 								
@@ -62,7 +61,6 @@
 										</td>
 									</tr>
 								<?php 
-								global $cart_total;
 								$cart_total = $cart_total + $row['price'];
 								}
 
@@ -78,7 +76,6 @@
 										</td>
 									</tr>
 								<?php 
-								global $cart_total;
 								$cart_total = $cart_total + $row['price'];
 								}
 								?>
