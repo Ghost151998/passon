@@ -3,7 +3,16 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" value="width=device-width,intial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <style type="text/css">
+    body{
+      overflow:scroll;
+    }
+
+  </style>
+
+
+
 
 	<title>List</title>
 </head>
@@ -11,93 +20,201 @@
 
 <body>
 
-	<div class="header"></div>
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" data-spy="affix">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Books</a></li>
+        <li><a href="#">Bikes</a></li>
+        <li><a href="#">Misc</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Sell</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-	<div class="list">
-		
-		<button class="accordion">1st Semester</button>
-		<div class="panel" id="panel_1" ">
-		<a href="#" id="description_1">
-			<img src="img/logo.png" name="sem1_img" id="sem1_img" class="sem1_img">
-			<br>
-			<label for="sem1_img">price</label>
-			<label for="sem1_img">name</label>
-		</a>
-		</div>
-
-
-		<button class="accordion">2nd Semester</button>
-		<div class="panel" id="panel_2">
-		<a href="#" id="description_2">
-			<img src="#" name="sem2_img" id="sem2_img" class="sem2_img">
-			<label for="sem2_img">price</label>
-			<label for="sem2_img">name</label>
-		</a>
-		</div>
-
-
-		<button class="accordion">3rd Semester</button>
-		<div class="panel" id="panel_3">
-		<a href="#" id="description_3">
-			<img src="#" name="sem3_img" id="sem3_img" class="sem3_img">
-			<label for="sem3_img">price</label>
-			<label for="sem3_img">name</label>
-		</a>
-		</div>
+<br><br>
 
 
-		<button class="accordion">4th Semester</button>
-		<div class="panel" id="panel_4">
-		<a href="#" id="description_4">
-			<img src="#" name="sem4_img" id="sem4_img" class="sem4_img">
-			<label for="sem4_img">price</label>
-			<label for="sem4_img">name</label>
-		</a>
-		</div>
+<div class="container">
+
+  <div class="panel-group" id="myaccordion">
+
+  <div class="panel">
+   <button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#sem_1" data-parent="#myaccordion"><h4 class="col-xs-8 text-left"><span class="col-xs-1 text-left glyphicon glyphicon-menu-down"> </span> 1st Semester </h4></button>
+  <div class="collapse in" id="sem_1" >
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="well-lg">
+          <a href="#" id="description_1" >
+          <img src="logo.png" name="sem2_img" class="img-responsive" alt="image">
+          <span class="col-xs-8 text-left">Name</span>
+          <span class="col-xs-4 text-right">Price</span>
+          </a>
+      </div>
+     </div>
+    </div>
+  </div>
+  </div>
+
+  
+  <div class="panel">
+  <button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#sem_2" data-parent="#myaccordion"><h4 class="col-xs-8 text-left"><span class="col-xs-1  text-left glyphicon glyphicon-menu-down"> </span>2nd Semester</h4></button>
+  <div class="collapse" id="sem_2" >
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="well-lg">
+          <a href="#" id="description_2">
+          <img src="logo.png" name="sem2_img" class="img-responsive" alt="image">
+          <span class="col-xs-8 text-left">Name</span>
+          <span class="col-xs-4 text-right">Price</span>
+          </a>
+      </div>
+     </div>
+    </div>
+  </div>
+  </div>
+  
+
+   <div class="panel"> 
+  <button type="button" class="btn btn-info btn-block " data-toggle="collapse" data-target="#sem_3" data-parent="#myaccordion" ><h4 class="col-xs-8 text-left"><span class="col-xs-1  text-left glyphicon glyphicon-menu-down"> </span>3rd Semester</h4></button>
+  <div class="collapse" id="sem_3" >
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="well-lg">
+         <a href="#" id="description_3">
+          <img src="logo.png" name="sem3_img" class="img-responsive" alt="image">
+          <span class="col-xs-8 text-left">Name</span>
+          <span class="col-xs-4 text-right">Price</span>
+        </a>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+  <div class="panel">
+  <button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#sem_4" data-parent="#myaccordion" ><h4 class="col-xs-8 text-left"><span class="col-xs-1  text-left glyphicon glyphicon-menu-down"> </span>4th Semester</h4></button>
+  <div class="collapse" id="sem_4" >
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="well-lg">
+         <a href="#" id="description_4">
+          <img src="logo.png" name="sem1_img" class="img-responsive" alt="image">
+          <span class="col-xs-8 text-left">Name</span>
+          <span class="col-xs-4 text-right">Price</span>
+        </a>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+  <div class="panel">
+  <button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#sem_5" data-parent="#myaccordion"><h4 class="col-xs-8 text-left"><span class="col-xs-1  text-left glyphicon glyphicon-menu-down"> </span>5th Semester</h4></button>
+  <div class="collapse" id="sem_5" >
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="well-lg">
+         <a href="#" id="description_5">
+          <img src="logo.png" name="sem1_img" class="img-responsive" alt="image">
+          <span class="col-xs-8 text-left">Name</span>
+          <span class="col-xs-4 text-right">Price</span>
+        </a>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+  <div class="panel">
+  <button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#sem_6" data-parent="#myaccordion"><h4 class="col-xs-8 text-left"><span class="col-xs-1  text-left glyphicon glyphicon-menu-down"> </span>6th Semester</h4></button>
+  <div class="collapse" id="sem_6" >
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="well-lg">
+         <a href="#" id="description_6">
+          <img src="logo.png" name="sem1_img" class="img-responsive" alt="image">
+          <span class="col-xs-8 text-left">Name</span>
+          <span class="col-xs-4 text-right">Price</span>
+        </a>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+  <div class="panel">
+  <button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#sem_7" data-parent="#myaccordion"><h4 class="col-xs-8 text-left"><span class="col-xs-1  text-left glyphicon glyphicon-menu-down"> </span>7th Semester</h4></button>
+  <div class="collapse" id="sem_7" >
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="well-lg">
+         <a href="#" id="description_7">
+          <img src="logo.png" name="sem1_img" class="img-responsive" alt="image">
+          <span class="col-xs-8 text-left">Name</span>
+          <span class="col-xs-4 text-right">Price</span>
+        </a>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+  <div class="panel">
+  <button type="button" class="btn btn-info btn-block" data-toggle="collapse" data-target="#sem_8" data-parent="#myaccordion"><h4 class="col-xs-8 text-left"><span class="col-xs-1  text-left glyphicon glyphicon-menu-down"> </span>8th Semester</h4></button>
+  <div class="collapse" id="sem_8" >
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="well-lg">
+         <a href="#" id="description_8">
+          <img src="logo.png" name="sem1_img" class="img-responsive" alt="image">
+          <span class="col-xs-8 text-left">Name</span>
+          <span class="col-xs-4 text-right">Price</span>
+        </a>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
 
 
-		<button class="accordion">5th Semester</button>
-		<div class="panel" id="panel_5">
-		<a href="#" id="description_5">
-			<img src="#" name="sem5_img" id="sem5_img" class="sem5_img">
-			<label for="sem5_img">price</label>
-			<label for="sem5_img">name</label>
-		</a>
-		</div>
+
+</div>
+ </div> 
 
 
-		<button class="accordion">6th Semester</button>
-		<div class="panel" id="panel_6">
-		<a href="#" id="description_6">
-			<img src="#" name="sem6_img" id="sem6_img" class="sem6_img">
-			<label for="sem6_img">price</label>
-			<label for="sem6_img">name</label>
-		</a>
-		</div>
 
 
-		<button class="accordion">7th Semester</button>
-		<div class="panel" id="panel_7">
-		<a href="#" id="description_7">
-			<img src="#" name="sem7_img" id="sem7_img" class="sem7_img">
-			<label for="sem7_img">price</label>
-			<label for="sem7_img">name</label>
-		</a>
-		</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<script>
+  $(document).ready(function(){
+  $("#sem_8").on("hide.bs.collapse", function(){
+    $(".btn.active").html('<span class="glyphicon glyphicon-collapse-down"></span>');
+  });
+  $("#sem_8").on("show.bs.collapse", function(){
+    $(".btn.active").html('<span class="glyphicon glyphicon-collapse-up"></span>');
+  });
+});
+</script>
 
-		<button class="accordion">8th Semester</button>
-		<div class="panel" id="panel_8">
-		<a href="#" id="description_8">
-			<img src="#" name="sem8_img" id="sem8_img" class="sem8_img">
-			<label for="sem8_img">price</label>
-			<label for="sem8_img">name</label>
-		</a>
-		</div>
+ 
 
-	</div>
-
-
-<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>
