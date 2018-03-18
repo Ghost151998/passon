@@ -2,6 +2,8 @@
 /*Validates user login credentials for authorizing to main site*/
 	session_start();
 	include ("dbconfig.php");//Connection to database
+	include ("test_variables.php");
+	
 	$redirect_to_user_home = "";//Set this to the page to redirect on verification
 	$resirect_to_user_login = "user_login.php";
 
@@ -33,4 +35,7 @@
 		return $data;
 	}
 
+?>
+<?php 
+	include ("test_variables.php");
 ?>

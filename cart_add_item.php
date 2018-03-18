@@ -2,6 +2,8 @@
 /*Verifies details of cart once logged in and clicked "add_to_cart" in book_description.No item description coming as of yet from books_list to book_description.*/
 	session_start();
 	include ("dbconfig.php");//Connection to database
+	include ("test_variables.php");
+
 	$redirect_to_success = "";//Set this to the main page
 	$redirect_to_item_description = "item_description.php";
 	$redirect_to_user_login = "user_login.php";
@@ -42,4 +44,7 @@
 		return $data;
 	}
 
+?>
+<?php 
+	include ("test_variables.php");
 ?>

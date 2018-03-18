@@ -2,6 +2,8 @@
 	session_start();
 	print_r($_SESSION);
 	include ("dbconfig.php");
+	include ("test_variables.php");
+	
 	$redirect_to_user_login = "user_login.php";
 
 	if(!$_SESSION["user_reg"]){//Login failed.Redirect to user_login.php
@@ -112,3 +114,6 @@
 	</body>
 </html>
 	<?php } ?>
+<?php 
+	include ("test_variables.php");
+?>

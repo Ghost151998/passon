@@ -3,6 +3,7 @@
 <?php
 	session_start();
 	include ("dbconfig.php");//Connection to database
+	include ("test_variables.php");
 
 	$redirect_to_user_login = "user_login.php";
 
@@ -113,4 +114,7 @@
 
 <?php 
 }
+?>
+<?php 
+	include ("test_variables.php");
 ?>

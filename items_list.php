@@ -2,6 +2,7 @@
 <?php
 	session_start();
 	include ("dbconfig.php");
+	include ("test_variables.php");
 
 	//Test Variables
 	//unset($_POST["book_branch"]);
@@ -113,3 +114,6 @@
 	<?php
 	} //if category is set
 		} ?>
+<?php 
+	include ("test_variables.php");
+?>

@@ -1,5 +1,6 @@
 <?php 
 	include ("session_refresh.php");
+	include ("test_variables.php");
 ?>
 
 <!DOCTYPE html>
@@ -28,8 +29,11 @@
 			<br>Confirm Password:<br>
 			<input type="password" name="user_password_confirm" required>
 			<br>
-			<input type="submit" value="Login" name="user_signin_submitbtn">
-			<input type="reset" value="Back" name="user_signin_backbtn">
+			<input type="submit" value="Login">
+			<input type="reset" value="Back">
 		</form>
 	</body>
 </html>
+<?php 
+	include ("test_variables.php");
+?>

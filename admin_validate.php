@@ -2,6 +2,8 @@
 /*Validates admin login credentials for authorizing to admin_page*/
 	include ("session_refresh.php");
 	include ("dbconfig.php");//Connection to database
+	include ("test_variables.php");
+
 	//$_SESSION  = array();//To clear session data
 	$redirect_to_admin_main = "admin_main.php";//Set this to the page to redirect on verification
 	$redirect_to_admin_login = "admin_login.php";
@@ -34,4 +36,7 @@
 		return $data;
 	}
 
+?>
+<?php 
+	include ("test_variables.php");
 ?>

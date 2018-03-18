@@ -2,6 +2,7 @@
 /*Submits verified salerequest data to server from admin_main*/
 	session_start();
 	include ("dbconfig.php");//Connection to database
+	include ("test_variables.php");
 	print_r($_SESSION);
 
 	$redirect_to_admin_main = "admin_main.php";//Set this to the page to redirect on verification
@@ -92,4 +93,7 @@
 		return $data;
 	}
 
+?>
+<?php 
+	include ("test_variables.php");
 ?>
