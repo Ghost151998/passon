@@ -44,6 +44,7 @@
 										<td>
 											<?php echo $row['price'] ?>
 										</td>
+										<td><?php echo "<a href='cart_remove_item.php?category=books&item_id=".urlencode($row["id"])."'>Remove Item</a>" ?></td>
 									</tr>
 								<?php 
 								$cart_total = $cart_total + $row['price'];
@@ -60,6 +61,9 @@
 										<td>
 											<?php echo $row['price'] ?>
 										</td>
+										<td>
+											<td><?php echo "<a href='cart_remove_item.php?category=bikes&item_id=".urlencode($row["id"])."'>Remove Item</a>" ?></td>
+										</td>
 									</tr>
 								<?php 
 								$cart_total = $cart_total + $row['price'];
@@ -75,6 +79,9 @@
 										<td>
 											<?php echo $row['price'] ?>
 										</td>
+										<td>
+											<td><?php echo "<a href='cart_remove_item.php?category=misc&item_id=".urlencode($row["id"])."'>Remove Item</a>" ?></td>
+										</td>
 									</tr>
 								<?php 
 								$cart_total = $cart_total + $row['price'];
@@ -83,8 +90,8 @@
 						</tbody>
 					</table>
 					<hr>
-					Cart Total :<?php echo $cart_total; ?>
-					
+					Cart Total :<?php echo $cart_total."<br>"; ?>
+					<?php if($cart_total > 0){echo "<a href='checkout.php'>Checkout</a>";} ?>
 				</body>
 			</html>
 

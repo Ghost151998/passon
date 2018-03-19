@@ -56,7 +56,7 @@
 
 				//QUERY FOR QUEUEING OF BOOKS
 				if($_POST["category"] == "books"){
-					$result = mysqli_query($conn,"INSERT INTO salerequest (seller,category,author,title,edition,branch,sem,description,quality,price) VALUES ('".$_SESSION["user_reg"]."','".$_POST["category"]."','".$book_author."','"$book_title."','".$book_edition."','".$book_branch."','".$book_sem."','".$description."','".$quality."','".$price."')");
+					$result = mysqli_query($conn,"INSERT INTO salerequest (seller,category,author,title,edition,branch,sem,description,quality,price) VALUES ('".$_SESSION["user_reg"]."','".$_POST["category"]."','".$book_author."','".$book_title."','".$book_edition."','".$book_branch."','".$book_sem."','".$description."','".$quality."','".$price."')");
 				}
 
 				//QUERY FOR QUEUEING OF BIKES
@@ -69,7 +69,6 @@
 					$result = mysqli_query($conn,"INSERT INTO salerequest (seller,category,name,description,quality,price) VALUES ('".$_SESSION["user_reg"]."','".$_POST["category"]."','".$misc_name."','".$description."','".$quality."','".$price."')");
 				}
 				echo "Entry submitted for admin verification.<br><br>Thank You!<br>";
-				//print_r($result);
 			}
 		}
 	}

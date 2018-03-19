@@ -1,10 +1,8 @@
-<!-- DOES NOT UPDATE DB ON CHECK-->
 <!-- Admin Main Page -->
 <?php
 	session_start();
 	include ("dbconfig.php");
 	include ("test_variables.php");
-	//print_r($_SESSION);
 
 	$redirect_to_admin_login = "admin_login.php";
 
@@ -23,9 +21,9 @@
 			<body>
 				<h3>Admin Main Page</h3>
 				<?php echo "Welcome,".$_SESSION["admin_name"]."<br>"?>
+				<a href="admin_login.php">Logout</a><br>
 					<!-- Use php code to query and populate a table with verification checkboxes and update DB accordingly on submit -->
 				<h5>Change the incorrect details!!!</h5>
-				<!-- Table for undelivered items -->
 				<h3>Queued items for verification</h3>
 				<br>
 				<table>
@@ -62,6 +60,7 @@
 
 										<!-- Books -->
 										<td><input type="text" name="author" value="<?php echo $row['author']?>" required></td>
+										<td><input type="text" name="title" value="<?php echo $row['title']?>" required></td>
 										<td><input type="text" name="edition" value="<?php echo $row['edition']?>" required></td>
 										<td><input type="text" name="branch" value="<?php echo $row['branch']?>" required></td>
 										<td><input type="text" name="sem" value="<?php echo $row['sem']?>" required></td>
@@ -113,10 +112,8 @@
 								<td><input type="text" name="customer" value="<?php echo $row['reg']?>" disabled required></td>
 								<td><input type="text" name="author" value="<?php echo $row['author']?>" disabled required></td>
 								<td><input type="text" name="edition" value="<?php echo $row['edition']?>" disabled required></td>
-								<!-- If time permits,change these to datalist -->
 
 								<!-- <td><input type="text" name="seller_id" value="<?php echo $row['seller_id']?>" required></td> -->
-								<!-- This is where a checkbox for validation and a checkbox for decline will go.Also,join the userinfo from users table into this table to contact and confirm. -->
 								<td><input type="text" name="category" value="books" hidden required></td>
 								<td><input type="text" name="checkout_id" value="<?php echo $row['checkout_id']?>" hidden required></td>
 							</tr>
@@ -218,7 +215,6 @@
 				?>
 					</tbody>
 				</table>
-
 			</body>
 		</html>
 

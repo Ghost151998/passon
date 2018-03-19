@@ -32,6 +32,7 @@
 			<input type="submit" value="Login">
 			<input type="reset" value="Back">
 		</form>
+		<a href="user_login.php">Already a User? Login</a>
 	</body>
 </html>
 <?php 

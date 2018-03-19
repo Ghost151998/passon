@@ -3,7 +3,7 @@
 	session_start();
 	include ("dbconfig.php");//Connection to database
 	include ("test_variables.php");
-	$redirect_to_user_main = "";//Set this to the main page
+	$redirect_to_user_home = "user_home.php";//Set this to the main page
 	$redirect_to_user_signup = "user_signup.php";
 
 	//ALL FORMAT CHECKS ARE PERFORMED BEFORE SENDING THE DATA TO THE SERVER. ONLY CHECK FOR EXISTING DB VALUES HERE.
@@ -31,8 +31,8 @@
 
 				$_SESSION["user_reg"] = $user_reg;
 				$_SESSION["user_name"] = $user_first_name;
-				echo "<br>Successfully signed up, " . $_SESSION["user_name"];//Comment out this line,only for testing
-				//header("Location: ".redirect_to_user_main);//redirect to main page
+				//echo "<br>Successfully signed up, " . $_SESSION["user_name"];//Comment out this line,only for testing
+				header("Location: ".$redirect_to_user_home);//redirect to main page
 			}
 
 			else{// Values already exist. WHAT TO DO?session must close.Alert must be generated.

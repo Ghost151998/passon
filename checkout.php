@@ -7,7 +7,7 @@
 
 	$redirect_to_cart = "cart.php";
 	$redirect_to_user_login = "user_login.php";
-	//$redirect_to_user_home = "";
+	$redirect_to_user_home = "user_home.php";
 
 	//Check if user is logged in
 	if(!$_SESSION["user_reg"]){//Login failed.Redirect to user_login.php
@@ -22,7 +22,7 @@
 		mysqli_query($conn,"UPDATE ".$row['item_category']." SET is_sold = 1 WHERE ".$row['item_category'].".id = ".$row['item_id']." ");//Update is_sold of item in its respective table
 	}
 	//Send confirmation from this page
-	//header("Location: ".$redirect_to_user_home);
+	header("Location: ".$redirect_to_user_home);
 ?>
 <?php 
 	include ("test_variables.php");

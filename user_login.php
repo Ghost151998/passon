@@ -22,6 +22,7 @@
 			<input type="reset" value="Back">
 			<!-- Warn on this page if login fails once with the error message from user_validate.php -->
 		</form>
+		<a href="user_signup.php">New User? Signup</a>
 	</body>
 </html>
 <?php 

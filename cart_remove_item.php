@@ -9,8 +9,8 @@
 	$redirect_to_user_login = "user_login.php";
 
 	//Test variables
-	$_SESSION["category"] = "bikes";
-	$_SESSION["item_id"] = 1;
+	//$_GET["category"] = "bikes";
+	//$_GET["item_id"] = 1;
 
 	//Check if user is logged in
 	if(!$_SESSION["user_reg"]){//Login failed.Redirect to user_login.php
@@ -18,7 +18,7 @@
 	}
 	print_r($_SESSION);
 
-	mysqli_query($conn,"DELETE FROM cart WHERE item_id = '".$_SESSION["item_id"]."' AND item_category = '".$_SESSION["category"]."'  AND cart.reg ='".$_SESSION["user_reg"]."'");
+	mysqli_query($conn,"DELETE FROM cart WHERE item_id = '".$_GET["item_id"]."' AND item_category = '".$_GET["category"]."'  AND cart.reg ='".$_SESSION["user_reg"]."'");
 	header("Location: ".$redirect_to_cart);
 ?>
 <?php 

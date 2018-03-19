@@ -22,6 +22,10 @@
 			<!-- Warn on this page if login fails once with the error message from admin_validate.php -->
 		</form>
 	</body>
+	<footer>
+		<a href="user_login.php">Not an Admin? User Login</a>
+		<a href="user_signup.php">Not an Admin? And New? User signup</a>
+	</footer>
 </html>
 <?php 
 	include ("test_variables.php");

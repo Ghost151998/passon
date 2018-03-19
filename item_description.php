@@ -23,15 +23,14 @@
 				<body>
 <?php
 
-	if(1/*$_POST["category"] == "books"*/){//Remove this after task: sending request from books_list page
-		
-		$id = 1; //Insert the id received from the page click of the item on the books list
+	if($_GET["category"] == "books"){//Remove this after task: sending request from books_list page
 
 		//Set this information on all books,bikes,and misc description pages since this will help form submission to cart
-		$_POST["category"] = "books";
-		$_POST["item_id"] = $id;
+		//Test inputs
+		//$_GET["category"] = "books";
+		//$_GET["item_id"] = 1;//Insert the id received from the page click of the item on the books list
 
-		$results = mysqli_query($conn,"SELECT * FROM books WHERE id = '".$id."' AND is_sold = 0 ");//Take the info of item from database
+		$results = mysqli_query($conn,"SELECT * FROM books WHERE id = '".$_GET["item_id"]."' AND is_sold = 0 ");//Take the info of item from database
 		//print_r($results);
 		echo "<br>";
 		$row = mysqli_fetch_object($results); ?> <!-- take all entries from table and fill them in html -->
@@ -43,11 +42,10 @@
 					Branch:<?php echo $row->branch; ?><br>
 					Semester:<?php echo $row->sem; ?><br>
 				<?php } ?>
-				Description:<br><?php echo $row->description; ?><br>
-				Quality:<br><?php echo $row->quality; ?><br>
-				Price:<br><?php echo $row->price; ?><br>
-				<form action="cart_handle.php" method="post">
-					<input type="submit" value="Add To Cart" name="add_to_cart">
+				Description:<?php echo $row->description; ?><br>
+				Quality:<?php echo $row->quality; ?><br>
+				Price:<?php echo $row->price; ?><br>
+				<?php echo "<a href='cart_add_item.php?category=".$_GET["category"]."&item_id=".$row->id."'>Add to Cart</a>" ?>
 					<!--name+= _book_'.<?phpecho $row->id ?>.' -->
 				</form>
 				</body>
@@ -56,15 +54,13 @@
 	}//Books close
 	?>
 <?php
-	if(0/*$_POST["category"] == "bikes"*/){//Remove this after task: sending request from bikes_list page
-		
-		$id = 1; //Insert the id received from the page click of the item on the books list
+	if($_GET["category"] == "bikes"){//Remove this after task: sending request from bikes_list page
 
 		//Set this information on all books,bikes,and misc description pages since this will help form submission to cart
-		$_POST["category"] = "bikes";
-		$_POST["item_id"] = $id;
+		//$_GET["category"] = "bikes";
+		//$_GET["item_id"] = $_GET["item_id"];
 
-		$results = mysqli_query($conn,"SELECT * FROM bikes WHERE id = '".$id."' AND is_sold = 0 ");//Take the info of item from database
+		$results = mysqli_query($conn,"SELECT * FROM bikes WHERE id = '".$_GET["item_id"]."' AND is_sold = 0 ");//Take the info of item from database
 		//print_r($results);
 		echo "<br>";
 		$row = mysqli_fetch_object($results); ?> <!-- take all entries from table and fill them in html -->
@@ -72,11 +68,10 @@
 				Brand:<?php echo $row->brand; ?><br>
 				Gear:<?php echo $row->gear; ?><br>
 				Colour:<?php echo $row->colour; ?><br>
-				Description:<br><?php echo $row->description; ?><br>
-				Quality:<br><?php echo $row->quality; ?><br>
-				Price:<br><?php echo $row->price; ?><br>
-				<form action="cart_handle.php" method="post">
-					<input type="submit" value="Add To Cart" name="add_to_cart">
+				Description:<?php echo $row->description; ?><br>
+				Quality:<?php echo $row->quality; ?><br>
+				Price:<?php echo $row->price; ?><br>
+				<?php echo "<a href='cart_add_item.php?category=".$_GET["category"]."&item_id=".$row->id."'>Add to Cart</a>" ?>
 					<!--name+= _book_'.<?phpecho $row->id ?>.' -->
 				</form>
 				</body>
@@ -85,25 +80,22 @@
 	}//Bikes
 	?>
 <?php
-	if(0/*$_POST["category"] == "misc"*/){//Remove this after task: sending request from misc_list page
-		
-		$id = 1; //Insert the id received from the page click of the item on the books list
+	if($_GET["category"] == "misc"){//Remove this after task: sending request from misc_list page
 
 		//Set this information on all books,bikes,and misc description pages since this will help form submission to cart
-		$_POST["category"] = "misc";
-		$_POST["item_id"] = $id;
+		//$_GET["category"] = "misc";
+		//$_GET["item_id"] = $_GET["item_id"];
 		
-		$results = mysqli_query($conn,"SELECT * FROM misc WHERE id = '".$id."' AND is_sold = 0 ");//Take the info of item from database
+		$results = mysqli_query($conn,"SELECT * FROM misc WHERE id = '".$_GET["item_id"]."' AND is_sold = 0 ");//Take the info of item from database
 		//print_r($results);
 		echo "<br>";
 		$row = mysqli_fetch_object($results); ?> <!-- take all entries from table and fill them in html -->
 
 				Name:<?php echo $row->name; ?><br>
-				Description:<br><?php echo $row->description; ?><br>
-				Quality:<br><?php echo $row->quality; ?><br>
-				Price:<br><?php echo $row->price; ?><br>
-				<form action="cart_handle.php" method="post">
-					<input type="submit" value="Add To Cart" name="add_to_cart">
+				Description:<?php echo $row->description; ?><br>
+				Quality:<?php echo $row->quality; ?><br>
+				Price:<?php echo $row->price; ?><br>
+				<?php echo "<a href='cart_add_item.php?category=".$_GET["category"]."&item_id=".$row->id."'>Add to Cart</a>" ?>
 					<!--name+= _book_'.<?phpecho $row->id ?>.' -->
 				</form>
 				</body>

@@ -4,8 +4,8 @@
 	include ("dbconfig.php");//Connection to database
 	include ("test_variables.php");
 	
-	$redirect_to_user_home = "";//Set this to the page to redirect on verification
-	$resirect_to_user_login = "user_login.php";
+	$redirect_to_user_home = "user_home.php";//Set this to the page to redirect on verification
+	$redirect_to_user_login = "user_login.php";
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		if (!empty($_POST["user_reg"]) && !empty($_POST["user_password"])) {
@@ -17,13 +17,13 @@
 				$db_user = mysqli_fetch_object($result);
 				$_SESSION["user_reg"] = $db_user->user_reg;
 				$_SESSION["user_name"] = $db_user->first_name;
-				echo "<br>Welcome, " . $_SESSION["user_name"];//Comment out this line,only for testing
-				//header("Location: ".$redirect_to_user_home);
+				//echo "<br>Welcome, " . $_SESSION["user_name"];//Comment out this line,only for testing
+				header("Location: ".$redirect_to_user_home);
 			}
 			else{//Die in this,or redirect to login on failure
 				//echo "<br>Login Failed";
 				$_SESSION  = array();
-				header("Location: ".$resirect_to_user_login);//Redirect to Admin Login
+				header("Location: ".$redirect_to_user_login);//Redirect to Admin Login
 			}
 		}
 	}

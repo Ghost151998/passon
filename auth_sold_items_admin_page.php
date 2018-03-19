@@ -12,12 +12,12 @@
 	}
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		if (!empty($_POST["price"]) && !empty($_POST["customer"]) && !empty($_POST["category"]) && !empty($_POST["price"])) {
-			mysqli_query($conn,"UPDATE sold_items SET is_delivered = 1 WHERE checkout_id = '".$_POST["checkout_id"]."' ");
-			
-			header("Location: ".$redirect_to_admin_main);//Send back to admin_main.php
-		}
+		//if (!empty($_POST["price"]) && !empty($_POST["customer"]) && !empty($_POST["category"])){
+			mysqli_query($conn,"UPDATE sold_items SET is_delivered = 1 WHERE checkout_id = '".$_POST["checkout_id"]."'");
+		//}
+		header("Location: ".$redirect_to_admin_main);//Send back to admin_main.php
 	}
+
 ?>
 <?php 
 	include ("test_variables.php");
