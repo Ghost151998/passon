@@ -8,6 +8,24 @@
         reg_no: {
           regex: /^20[0-9]{6}$/
         },
+        author: {
+            regex:/^[A-Za-z]{3,50}$/
+        },
+        edition: {
+            regex: /^[0-9]{0,3}$/
+        },
+        color: {
+            regex: /^[A-Za-z]{3,20}$/
+        },
+        item_name: {
+            regex: /^[A-Za-z]{3,30}$/
+        },
+        price: {
+            regex: /^[0-9]{1,6}$/
+        },
+        description: {
+            regex: /^[a-zA-Z0-9\s]{5,500}$/
+        },
        
         firstName: {
             regex: /^[A-Za-z]{3,30}$/
@@ -21,7 +39,7 @@
         },
         pass_retype: {
             regex: /^[\d\D]{6,20}$/
-        },
+        },  
         email: {
             regex: /^[a-zA-z0-9\.\-_]*[@][a-z]*[?'mail']*[\.][a-z]{2,4}$/
         },
