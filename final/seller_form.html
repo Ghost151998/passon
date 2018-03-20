@@ -182,23 +182,23 @@
             </div>
             
 
+            <div  id="book">
 
-
-            <div class="form-group" id="book">
+            <div class="form-group" >
               <label for="book_author">Author</label>
               <input type="text" class="form-control required author" id="book_author"  data-placement="right" data-trigger="manual" data-content="enter valid 8 digit registration number starting with 20">
             </div>
 
 
-            <div class="form-group" id="book">
+            <div class="form-group">
               <label for="book_edition">Edition</label>
               <input type="text" class="form-control required edition" id="book_edition"  data-placement="right" data-trigger="manual" data-content="first name without space upto 30char max">
             </div>
 
 
-            <div class="form-group" id="book">
+            <div class="form-group" >
               <label for="book_branch" >Branch</label>
-             <select name="book_branch">
+             <select name="book_branch" id="branch" class="form-control required">
                <option value="cseit" selected>CSE/IT</option>
                <option value="ece">ECE</option>
                <option value="chem">Chemical</option>
@@ -206,14 +206,14 @@
                <option value="biot">Biotechnology</option>
                <option value="mechprod">Mechanical/Production</option>
                <option value="ee">Electrical</option>
-               <option value="none">No category</option>
+               <option value="null">No category</option>
              </select>
             </div>
 
 
-            <div class="form-group" id="book">
+            <div class="form-group" id="sem">
               <label for="book_semester" style="margin-bottom: 10px;">Semester</label>
-              <select name="book_sem">
+              <select name="book_sem" class="form-control required">
                  <option value="1" selected>1st</option>
                  <option value="2">2nd</option>
                 <option value="3">3rd</option>
@@ -226,39 +226,46 @@
             </div>
 
 
-
+          </div>
            
 
+           <div id="bike">
+
+
+
             <div class="category_select col-sm-12 pull-left" style="margin-left:0;margin-bottom: 20px;margin-top: 10px;">
-              <div class="form-group" id="bike">
-
-               <label class="radio_label">Non-Gear
-                  <input type="radio" name="bike_no_gear" class="radio_btn" value="bike_no_gear"  checked="checked" >
+            <div class="form-group">
+    
+              <label class="radio_label">Non-Gear
+                  <input type="radio" name="category" id="non-gear" class="radio_btn required" value="non-gear" checked="checked">
                   <span class="radio_check"></span>
-                  </label>
+              </label>
 
-                  <label class="radio_label" >Gear
-                    <input type="radio" name="bike_gear" class="radio_btn" value="bike_gear" >
-                    <span class="radio_check"></span>
-                  </label>
+              <label class="radio_label">Gear
+                  <input type="radio" name="category" id="gear" class="radio_btn required" value="gear" >
+                  <span class="radio_check"></span>
+              </label>
+
               
-              </div>
-            </div>   <br>  
+              </div>                  
+            </div>
 
 
-            <div class="form-group" id="bike">
+            <div class="form-group" >
               <label for="bike_color">Bike Color</label>
               <input type="text" class="form-control required color" id="bike_color"  data-placement="right" data-trigger="manual" data-content="enter valid address">
             </div>
 
+          </div>
 
+          <div id="misc">
 
-            <div class="misc_item_name" id="misc">
+            <div class="misc_item_name">
               <label for="misc_item_name"> Item Name</label>
               <input type="text" class="form-control required item_name" id="misc_item_name"  data-placement="right" data-trigger="manual" data-content="must be atleast 6 characters and max 20">
             </div>
 
-
+          </div>
 
             <!-- commmon field below for all 3 categories-->
 
@@ -270,7 +277,7 @@
 
             <br>
             <label for="quality">Quality</label>
-            <select name="quality" class="custom-select" id="quality">
+            <select name="quality" class="form-control required" id="quality">
               <option value="new">New</option>
               <option value="good">Good</option>
               <option value="ok">Okay</option>
@@ -323,6 +330,8 @@ $(document).ready(function(){
 });
 
 
+//for hiding specific category on radio button check
+
 $(document).ready(function(){
   $("#book,#bike,#misc").fadeOut();
 });
@@ -342,6 +351,20 @@ $("#radio_bike").click(function(){
 $("#radio_misc").click(function(){
   $("#book,#bike").fadeOut();
   $("#misc").fadeIn("slow");
+});
+});
+
+
+
+//hiding sem on branch=other
+$(document).ready(function(){
+  $("#branch").click(function(){
+if ($("#branch").val() == "null") {
+    $("#sem").fadeOut();
+}
+ else {
+    $("#sem").fadeIn();
+}
 });
 });
 
