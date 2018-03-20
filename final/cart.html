@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style >
+
+body{
+      overflow:scroll;
+      background:url("4.jpg");
+      background-size: cover;
+    }
+
+    .affix{
+      top 0;
+      width: 100%;
+      z-index: 9999 !important;
+    }
+
+    .affix ~ .container-fluid{
+      position: relative;
+    }
+
+    th{
+      color: white;
+    }
+
+
+    
+    
+</style>
+
+</head>
+
+<body>
+
+
+<nav class="navbar  navbar-inverse" >
+    <div class="container-fluid ">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand col-sm-1" href="#">Logo</a>
+
+
+      <div class="navbar-collapse  collapse ">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle js-activated">Books <b class="caret"></b></a>
+            <ul class="dropdown-menu" style="background-color: black;opacity: 0.9;border: solid 1px;" >
+             <li><a  class="c"   href="#" style="color: white;">CSE/IT</a></li>
+             <li><a  class="c"   href="#" style="color: white;">ECE</a></li>
+             <li><a  class="c"   href="#" style="color: white;">ELECTRICAL</a></li>
+             <li><a  class="c"   href="#" style="color: white;">CIVIL</a></li>
+             <li><a  class="c"   href="#" style="color: white;">MECH/PROD</a></li>
+             <li><a  class="c"   href="#" style="color: white;">CHEMICAL</a></li>
+             <li><a  class="c"   href="#" style="color: white;">BIO-TECH</a></li>
+             <li><a  class="c"   href="#" style="color: white;">MISC</a></li>          
+           </ul>
+          </li>
+
+        <li><a href="#section2">Bikes</a></li>
+        <li><a href="#section3">Misc</a></li>
+        <li><a href="#section4">Sell</a></li>
+        <li><a href="#footer">Contact</a></li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Logout</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+      </ul>
+
+         
+      </div> <!-- .nav-collapse -->
+    </div> <!-- .container -->
+  </nav><br>
+
+  <div class="jumbotron" style="opacity: 0.5;">
+  <div class="container text-center">
+    <h1 class="text-left">Cart</h1>      
+  </div>
+</div>
+
+
+
+<div class="container">
+                                                                                      
+  <div class="table-responsive">          
+  <table class="table table-hover">
+    <thead>
+      <tr >
+        <th>No.</th>
+        <th>Item Name</th>
+        <th>Price<i class="glyphicon glyphicon-euro"></i></th>
+        <th>Remove Item</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="info">
+        <td>1</td>
+        <td>car</td>
+        <td>3000</td>
+        <td><a href="#"><i class="glyphicon glyphicon-minus"></i></a></td>
+      </tr>
+
+      <br>
+
+      <tr class="info">
+      <td >Total</td>
+      <td>637463746</td>
+    </tr>
+    </tbody>
+
+    
+
+    
+  </table>
+  </div>
+</div>
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="bootstrap-hover-dropdown.js"></script>
+
+<script>
+  $(document).ready(function() {
+      $('.js-activated').dropdownHover().dropdown();
+    });
+
+</script>
+
+</body>
+</html>
