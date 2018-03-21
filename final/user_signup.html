@@ -3,8 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"--></script>
+  
 
   <!-- for google icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -36,12 +35,12 @@
       color: black;
    }
   .btn-default:hover {
-      background: green;
+      background: #5cb85c;
       color: white;
    }
 
    #reset:hover{
-    background-color: #C0392B;
+    background-color: #E74C3C;
     color: white;
    }
 
@@ -62,10 +61,10 @@
 
 
   <!-- Modal -->
- <div id="costumModal5" class="modal" data-easein="flipBounceYIn"  tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
+ <div id="costumModal11" class="modal" data-easein="bounceUpIn"  tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
   
 
-    <div class="modal-dialog" style="margin: 20vh auto 0px auto;">
+    <div class="modal-dialog" style="margin: 10vh auto 0px auto;margin-bottom: 5%;">
     
       <!-- Modal content-->
       <div class="modal-content" style="opacity: 0.9;">
@@ -94,7 +93,7 @@
 
 
             <div class="form-group">
-              <label for="email"><i class="material-icons text-center" >email</i>Email</label>
+              <label for="email"><span class="glyphicon glyphicon-envelope"  id="text" text-center" ></span>Email</label>
               <input type="text" class="form-control required email" id="email" placeholder="^[a-zA-z0-9\.\-_]*[@][a-z]*[?'mail']*[\.][a-z]{2,4}$" data-placement="right" data-trigger="manual" data-content="enter in form of abc@xyz.com">
             </div>
 
@@ -104,7 +103,7 @@
             </div>
 
             <div class="form-group">
-              <label for="address"><span class="glyphicon glyphicon-user" id="text"></span>Address</label>
+              <label for="address"><span class="glyphicon glyphicon-home" id="text"></span>Address</label>
               <input type="text" class="form-control required address" id="address" placeholder="^[a-zA-Z0-9\s]{5,200}$" data-placement="right" data-trigger="manual" data-content="enter valid address">
             </div>
 
@@ -145,24 +144,24 @@
   </div> 
 
  
-<script>
-
-// for dialoge animation
-$(document).ready(function(){
-    $(function(){
-        $("#costumModal5").modal();
-    });
-});
-
-
-</script>
 
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"--></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js'></script>
 <script src="index.js"></script>
 <script src="script.js"></script>
+
+<script>
+// for dialoge animation
+$(document).ready(function(){
+    $(function(){
+        $("#costumModal11").modal();
+    });
+});
+</script>
 
 
 </body>

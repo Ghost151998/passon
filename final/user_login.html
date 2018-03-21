@@ -3,8 +3,8 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"--></script>
+  <link href="http://getbootstrap.com/2.3.2/assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+ 
 
   <!-- for animation -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -18,6 +18,7 @@
   body{
     background:url("4.jpg");
     background-size: cover;
+    overflow: scroll;
   }
 
   .modal-header, h4, .close {
@@ -33,14 +34,11 @@
       color: black;
    }
   .btn-default:hover {
-      background: green;
+      background: #5cb85c;
       color: white;
    }
 
-    #reset:hover{
-      background: #C0392B;
-      color: white;
-    }  
+    
 
     #text{
        margin-right: 15px;
@@ -54,7 +52,7 @@
 
 
   <!-- Modal -->
- <div id="costumModal5" class="modal" data-easein="flipBounceYIn"  tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
+ <div id="costumModal11" class="modal" data-easein="bounceUpIn"  tabindex="-1" role="dialog" aria-labelledby="costumModalLabel" aria-hidden="true"  data-backdrop="static" data-keyboard="false" ">
   
 
     <div class="modal-dialog" style="margin: 20vh auto 0px auto;">
@@ -77,45 +75,45 @@
               <input type="Password" class="form-control required pass" id="pass" placeholder="^[\d\D]{6,20}$" data-placement="right" data-trigger="manual" data-content="must be atleast 6 characters and max 20">
             </div>
 
-            <br>
-              
-              <button type="submit" class="btn btn-default col-sm-4" style="border-radius: 30px;"><span class="glyphicon glyphicon-off"></span> Login</button>
-              
-<!-- Bug modal gets closed on reset-->
-
-              <button type="reset" class="btn btn-default col-sm-4 pull-right" id="reset" style="border-radius: 30px;" data-dismiss="modal" ><span class="glyphicon glyphicon-remove"></span> Reset</button>
-          </form>
-        </div>
-        <br>
-        <div class="modal-footer">
+            
+                          
           
+        </div>
+        
+        <div class="modal-footer" style="height: 8%;">
+          <div class="row-fluid" >
+                <button type="submit" class="btn btn-default col-sm-4 offset4" style="border-radius: 30px;"><span class="glyphicon glyphicon-off"></span> Login</button>
+              </div>
+              <br>
           <p  style="font-size: 20px;">Not a member? <a href="user_signup.html">Sign Up</a></p>
           
         </div>
+      </form>
       </div>
       
     </div>
   </div> 
 
  
-<script>
-
-// for dialoge animation
-$(document).ready(function(){
-    $(function(){
-        $("#costumModal5").modal();
-    });
-});
-
-
-</script>
 
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"--></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.ui.min.js'></script>
 <script src="index.js"></script>
 <script src="script.js"></script>
+
+
+<script>
+// for dialoge animation
+$(document).ready(function(){
+    $(function(){
+        $("#costumModal11").modal();
+    });
+});
+</script>
 
 
 </body>
