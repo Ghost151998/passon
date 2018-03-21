@@ -1,7 +1,6 @@
 <?php 
 	include ("session_refresh.php");
 	include ("test_variables.php");
-	print_r($_SESSION);
 ?>
 <!DOCTYPE html>
 <!-- Admin Login Page -->
@@ -20,11 +19,11 @@
 			<input type="submit" value="Login">
 			<input type="reset" value="Back">
 			<!-- Warn on this page if login fails once with the error message from admin_validate.php -->
-		</form>
+		</form><br>
 	</body>
 	<footer>
-		<a href="user_login.php">Not an Admin? User Login</a>
-		<a href="user_signup.php">Not an Admin? And New? User signup</a>
+		<a href="user_login.php">User Login</a><br>
+		<a href="user_signup.php">User signup</a>
 	</footer>
 </html>
 <?php 

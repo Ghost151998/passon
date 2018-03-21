@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2018 at 09:50 PM
+-- Generation Time: Mar 21, 2018 at 09:21 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -92,8 +92,9 @@ CREATE TABLE `books` (
 
 INSERT INTO `books` (`id`, `author`, `title`, `edition`, `seller`, `branch`, `sem`, `description`, `quality`, `price`, `is_sold`) VALUES
 (1, 'RD Sharma', 'Maths', '4th Edition', '20168059', 'mechprod', '3', 'A bit old.Good condition.No pencil marks.', 'ok', '200', 0),
-(2, 'IE Irodov', 'Physics', '3', 'Chutia', 'ece', '2', 'FUCKING NEW BIATCH!', 'new', '114', 0),
-(3, 'Paulo Coelho', 'The Alchemist', '4', '20168059', NULL, NULL, 'Great Novel', 'new', '350', 0);
+(2, 'IE Irodov', 'Physics', '3', 'Chutia', 'ece', '2', 'FUCKING NEW BIATCH!', 'new', '114', 1),
+(3, 'Paulo Coelho', 'The Alchemist', '4', '20168059', NULL, NULL, 'Great Novel', 'new', '350', 1),
+(9, 'SL Loney', 'Trigonometry', '4', '20168059', 'chem', '5', '1234', 'poor', '450', 0);
 
 -- --------------------------------------------------------
 
@@ -107,13 +108,6 @@ CREATE TABLE `cart` (
   `item_id` int(11) NOT NULL,
   `item_category` set('books','bikes','misc','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `cart`
---
-
-INSERT INTO `cart` (`cart_id`, `reg`, `item_id`, `item_category`) VALUES
-(1, '20168059', 1, 'bikes');
 
 -- --------------------------------------------------------
 
@@ -148,6 +142,7 @@ CREATE TABLE `salerequest` (
   `seller` varchar(8) NOT NULL,
   `category` set('books','bikes','misc','') NOT NULL,
   `author` text,
+  `title` text,
   `edition` text,
   `branch` set('cseit','mechprod','chem','civ','ee','ece','biot') DEFAULT NULL,
   `sem` set('1','2','3','4','5','6','7','8') DEFAULT NULL,
@@ -165,9 +160,12 @@ CREATE TABLE `salerequest` (
 -- Dumping data for table `salerequest`
 --
 
-INSERT INTO `salerequest` (`id`, `seller`, `category`, `author`, `edition`, `branch`, `sem`, `brand`, `colour`, `gear`, `name`, `description`, `quality`, `price`, `deleted`) VALUES
-(1, '20168059', 'books', 'RD Sharma', '4', 'cseit', '3', NULL, NULL, NULL, NULL, 'drip', 'new', '350', 1),
-(2, '20168043', 'bikes', NULL, NULL, NULL, NULL, 'Lamborghini Aventador', 'Red', 'You shouldn\'t ask', NULL, 'Real Fast', 'new', '1000', 0);
+INSERT INTO `salerequest` (`id`, `seller`, `category`, `author`, `title`, `edition`, `branch`, `sem`, `brand`, `colour`, `gear`, `name`, `description`, `quality`, `price`, `deleted`) VALUES
+(1, '20168059', 'books', 'RD Sharma', 'Maths', '4', 'cseit', '3', NULL, NULL, NULL, NULL, 'drip', 'new', '350', 1),
+(2, '20168043', 'bikes', NULL, '', NULL, NULL, NULL, 'Lamborghini Aventador', 'Red', 'You shouldn\'t ask', NULL, 'Real Fast', 'new', '1000', 0),
+(5, '20168059', 'books', 'SL Loney', 'Trigonometry', '4', 'chem', '5', NULL, NULL, NULL, NULL, '1234', 'poor', '450', 1),
+(6, '20168059', 'books', 'Coremen', 'Algorithms', '4', 'cseit', '4', NULL, NULL, NULL, NULL, 'It\'s a big book.Read it to become ALGO GOD.', 'new', '1000', 0),
+(30, '20168059', 'books', 'Sunny Leone', 'How I roll', '4', 'ece', '2', NULL, NULL, NULL, NULL, 'I\'m good', 'good', '350', 0);
 
 -- --------------------------------------------------------
 
@@ -180,17 +178,18 @@ CREATE TABLE `sold_items` (
   `reg` varchar(8) NOT NULL,
   `item_id` int(11) NOT NULL,
   `item_category` set('books','bikes','misc') NOT NULL,
-  `is_delivered` tinyint(1) NOT NULL DEFAULT '0',
-  `seller_id` varchar(8) NOT NULL
+  `is_delivered` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sold_items`
 --
 
-INSERT INTO `sold_items` (`checkout_id`, `reg`, `item_id`, `item_category`, `is_delivered`, `seller_id`) VALUES
-(1, '20168059', 2, 'books', 0, '20168059'),
-(2, '20168059', 1, 'bikes', 0, '20168043');
+INSERT INTO `sold_items` (`checkout_id`, `reg`, `item_id`, `item_category`, `is_delivered`) VALUES
+(1, '20168059', 2, 'books', 0),
+(2, '20168059', 1, 'bikes', 0),
+(4, '20168059', 2, 'books', 0),
+(5, '20168059', 3, 'books', 1);
 
 -- --------------------------------------------------------
 
@@ -213,8 +212,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_reg`, `user_password`, `first_name`, `last_name`, `email`, `phone_number`, `address`) VALUES
-('20168059', 'nmistic', 'Siddhant', 'Sinha', 'siddhantsinha140@gmail.com', '7903265214', '223 Patel Hostel MNNIT Allahabad'),
-('20168062', 'sgjn', 'Shashank', 'Shekhar', 'ss5593@gmail.com', '213', 'arog');
+('20161234', 'yo', 'shion', 'sinha', 'shionsinha@gmail.com', 'wir2r339rj', '223 Patel Hostel'),
+('20168059', 'nmistic', 'Siddhant', 'Sinha', 'siddhantsinha140@gmail.com', '7903265214', '223 Patel Hostel MNNIT Allahabad');
 
 --
 -- Indexes for dumped tables
@@ -283,13 +282,13 @@ ALTER TABLE `bikes`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `misc`
@@ -301,13 +300,13 @@ ALTER TABLE `misc`
 -- AUTO_INCREMENT for table `salerequest`
 --
 ALTER TABLE `salerequest`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `sold_items`
 --
 ALTER TABLE `sold_items`
-  MODIFY `checkout_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `checkout_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

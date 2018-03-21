@@ -47,7 +47,7 @@
 				Price:<?php echo $row->price; ?><br>
 
 				<?php
-					$img_path = "images/books/books_".$row['id'];
+					$img_path = "images/books/books_".$row->id;
 					$img_src = $img_path.".*";
 					$result = glob($img_src);
 					$extension = strtolower(pathinfo($result[0],PATHINFO_EXTENSION));
@@ -84,7 +84,7 @@
 				Price:<?php echo $row->price; ?><br>
 
 				<?php
-					$img_path = "images/bikes/bikes_".$row['id'];
+					$img_path = "images/bikes/bikes_".$row->id;
 					$img_src = $img_path.".*";
 					$result = glob($img_src);
 					$extension = strtolower(pathinfo($result[0],PATHINFO_EXTENSION));
@@ -119,7 +119,7 @@
 				Price:<?php echo $row->price; ?><br>
 
 				<?php
-					$img_path = "images/misc/misc_".$row['id'];
+					$img_path = "images/misc/misc_".$row->id;
 					$img_src = $img_path.".*";
 					$result = glob($img_src);
 					$extension = strtolower(pathinfo($result[0],PATHINFO_EXTENSION));

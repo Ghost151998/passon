@@ -45,9 +45,7 @@
 							<!-- take all entries from table and fill them in html -->
 							<!-- Set this while loop in div and format it -->
 							<!-- Set the onclick listener for this div to book_description -->
-							Author :<?php echo $row['author']; ?><br>
 							Title :<?php echo $row['title']; ?><br>
-							Edition :<?php echo $row['edition']; ?><br>
 							Price :<?php echo $row['price']; ?><br>
 
 							<?php
@@ -85,15 +83,15 @@
 							<!-- take all entries from table and fill them in html -->
 							<!-- Set this while loop in div and format it -->
 							<!-- Set the onclick listener for this div to book_description -->
-							Author :<?php echo $row['author']; ?><br>
 							Title :<?php echo $row['title']; ?><br>
-							Edition :<?php echo $row['edition']; ?><br>
 							Price :<?php echo $row['price']; ?><br>
 
 							<?php
 								$img_path = "images/books/books_".$row['id'];
+								//print_r($img_path);
 								$img_src = $img_path.".*";
 								$result = glob($img_src);
+								//print_r($result);
 								$extension = strtolower(pathinfo($result[0],PATHINFO_EXTENSION));
 								$img_path = $img_path.".".$extension;
 							 ?>
@@ -115,9 +113,7 @@
 		if($_GET["category"] == "bikes"){
 			$results = mysqli_query($conn,"SELECT * FROM bikes WHERE is_sold = 0");
 			while($row = mysqli_fetch_assoc($results)){?>
-				Brand :<?php echo $row['brand']?><br>
-				Gear :<?php echo $row['gear']?><br>
-				Colour :<?php echo $row['colour']?><br>
+				Model :<?php echo $row['colour']." ".$row['brand'] ?><br>
 				Price :<?php echo $row['price']?><br>
 
 				<?php

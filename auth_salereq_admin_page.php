@@ -52,41 +52,56 @@
 			if($category == "books"){ //Update the books table with this value
 				$result = mysqli_query($conn,"INSERT INTO books (author,title,edition,seller,branch,sem,description,quality,price) VALUES ('".$author."','".$title."','".$edition."','".$seller."','".$branch."','".$sem."','".$description."','".$quality."','".$price."')");
 
-				$image_id_query = mysqli_query($conn,"SELECT LAST_INSERT_ID() AS last_id");
-				$img_id = mysqli_fetch_object($image_id_query);
+				$new_id = mysqli_query($conn,"SELECT LAST_INSERT_ID() AS last_id");
+				$new_img_id = mysqli_fetch_object($new_id);
 
-				$sale_id = mysqli_query($conn,"SELECT id FROM salerequest WHERE category = 'books' AND seller = '".$seller."' AND author = '".$author."' AND title = '".$title."' AND edition = '".$edition."' AND branch = '".$branch."' AND sem = '".$sem."' AND description = '".$description."' AND quality = '".$quality."' AND price = '".$price."'");//Fetch the id of the above entry
-				$sale_id = mysqli_fetch_object($sale_id);
-				//print_r($sale_id);
+				$old_id = mysqli_query($conn,"SELECT id FROM salerequest WHERE category = 'books' AND seller = '".$seller."' AND author = '".$author."' AND title = '".$title."' AND edition = '".$edition."' AND branch = '".$branch."' AND sem = '".$sem."' AND description = '".$description."' AND quality = '".$quality."' AND price = '".$price."'");//Fetch the id of the above entry
+				$old_img_id = mysqli_fetch_object($old_id);
 
-				mysqli_query($conn,"UPDATE salerequest SET deleted = '1' WHERE id ='".$sale_id->id."'"); //Set deleted = true for the verified book in salerequest
+				mysqli_query($conn,"UPDATE salerequest SET deleted = '1' WHERE id ='".$old_img_id->id."'"); //Set deleted = true for the verified book in salerequest
 			}
 
 			//UPDATE QUERY FOR Bikes
 			if($_POST["category"] == "bikes"){ //Update the bikes table with this value
 				$result = mysqli_query($conn,"INSERT INTO bikes (brand,seller,gear,colour,description,quality) VALUES ('".$brand."','".$seller."','".$gear."','".$colour."','".$description."','".$quality."')");
 
-				$sale_id = mysqli_query($conn,"SELECT id FROM salerequest WHERE seller = '".$seller."' AND brand = '".$brand."' AND gear = '".$gear."' AND colour = '".$colour." AND description = '".$description."' AND quality = '".$quality."' AND price = '".$price."'");//Fetch the id of the above entry
-				$sale_id = mysqli_fetch_object($sale_id);
-				//print_r($sale_id);
+				$new_id = mysqli_query($conn,"SELECT LAST_INSERT_ID() AS last_id");
+				$new_img_id = mysqli_fetch_object($new_id);
 
-				mysqli_query($conn,"UPDATE salerequest SET deleted = '1' WHERE id ='".$sale_id->id."'"); //Set deleted = true for the verified book in salerequest
+				$old_id = mysqli_query($conn,"SELECT id FROM salerequest WHERE seller = '".$seller."' AND brand = '".$brand."' AND gear = '".$gear."' AND colour = '".$colour." AND description = '".$description."' AND quality = '".$quality."' AND price = '".$price."'");//Fetch the id of the above entry
+				$old_img_id = mysqli_fetch_object($old_id);
+
+				mysqli_query($conn,"UPDATE salerequest SET deleted = '1' WHERE id ='".$old_img_id->id."'"); //Set deleted = true for the verified book in salerequest
 			}
 
 			//UPDATE QUERY FOR MISC
 			if($_POST["category"] == "misc"){ //Update the misc table with this value
 				$result = mysqli_query($conn,"INSERT INTO misc (name,seller,description,quality,price) VALUES ('".$name."','".$seller."','".$description."','".$quality."','".$price."')");
 
-				$sale_id = mysqli_query($conn,"SELECT id FROM salerequest WHERE seller = '".$seller."' AND name = '".$name."' AND description = '".$description."' AND quality = '".$quality." AND price = '".$price."'");//Fetch the id of the above entry
-				$sale_id = mysqli_fetch_object($sale_id);
-				//print_r($sale_id);
+				$new_id = mysqli_query($conn,"SELECT LAST_INSERT_ID() AS last_id");
+				$new_img_id = mysqli_fetch_object($new_id);
 
-				mysqli_query($conn,"UPDATE salerequest SET deleted = '1' WHERE id ='".$sale_id->id."'"); //Set deleted = true for the verified book in salerequest
+				$old_id = mysqli_query($conn,"SELECT id FROM salerequest WHERE seller = '".$seller."' AND name = '".$name."' AND description = '".$description."' AND quality = '".$quality." AND price = '".$price."'");//Fetch the id of the above entry
+				$old_img_id = mysqli_fetch_object($old_id);
+
+				mysqli_query($conn,"UPDATE salerequest SET deleted = '1' WHERE id ='".$old_img_id->id."'"); //Set deleted = true for the verified book in salerequest
 			}
 			//print_r($result);
 			
 			//IMAGE REDIRECTION
-			rename("images/salereq/salereq_".$sale_id->id,"images/".$_POST["category"]."/".$_POST["category"]."_".$img->id->last_id);
+			$old_img_path = "images/salereq/salereq_".$old_img_id->id;
+			$old_img_src = $old_img_path.".*";
+			$result = glob($old_img_src);
+			$extension = strtolower(pathinfo($result[0],PATHINFO_EXTENSION));
+			$old_img_path .= (".".$extension);
+
+			$new_img_path = "images/".$_POST["category"]."/".$_POST["category"]."_".$new_img_id->last_id;
+			$new_img_src = $new_img_path.".*";
+			$result = glob($old_img_src);
+			$extension = strtolower(pathinfo($result[0],PATHINFO_EXTENSION));
+			$new_img_path .= (".".$extension);
+			
+			rename($old_img_path,$new_img_path);
 			
 			header("Location: ".$redirect_to_admin_main);//Send back to admin_main.php
 		}
