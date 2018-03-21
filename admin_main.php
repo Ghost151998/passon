@@ -33,6 +33,7 @@
 							<td>Seller</td>
 							<td>Category</td>
 							<td>Author</td>
+							<td>Ttile</td>
 							<td>Edition</td>
 							<td>Branch</td>
 							<td>Semester</td>
@@ -43,6 +44,7 @@
 							<td>Description</td>
 							<td>Quality</td>
 							<td>Price</td>
+							<td>Image</td>
 
 						</tr>
 					</thead>
@@ -75,7 +77,17 @@
 										<td><input type="text" name="description" value="<?php echo $row['description']?>" required></td>
 										<td><input type="text" name="quality" value="<?php echo $row['quality']?>" required></td>
 										<td><input type="text" name="price" value="<?php echo $row['price']?>" required></td>
-										<!-- This is where a checkbox for validation and a checkbox for decline will go.Also,join the userinfo from users table into this table to contact and confirm. -->
+
+										<?php
+											$img_path = "images/salereq/salereq_".$row['id'];
+											$img_src = $img_path.".*";
+											$result = glob($img_src);
+											//print_r($result);
+											$extension = strtolower(pathinfo($result[0],PATHINFO_EXTENSION));
+											$img_path .= (".".$extension);
+										 ?>
+										<td><image src="<?php echo $img_path?>" name="item_image" height="200" width="320" required></td>
+										<!-- This is where a checkbox for decline will go-->
 									</tr>
 								</form>
 							<?php 

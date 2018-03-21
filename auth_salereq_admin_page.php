@@ -52,6 +52,9 @@
 			if($category == "books"){ //Update the books table with this value
 				$result = mysqli_query($conn,"INSERT INTO books (author,title,edition,seller,branch,sem,description,quality,price) VALUES ('".$author."','".$title."','".$edition."','".$seller."','".$branch."','".$sem."','".$description."','".$quality."','".$price."')");
 
+				$image_id_query = mysqli_query($conn,"SELECT LAST_INSERT_ID() AS last_id");
+				$img_id = mysqli_fetch_object($image_id_query);
+
 				$sale_id = mysqli_query($conn,"SELECT id FROM salerequest WHERE category = 'books' AND seller = '".$seller."' AND author = '".$author."' AND title = '".$title."' AND edition = '".$edition."' AND branch = '".$branch."' AND sem = '".$sem."' AND description = '".$description."' AND quality = '".$quality."' AND price = '".$price."'");//Fetch the id of the above entry
 				$sale_id = mysqli_fetch_object($sale_id);
 				//print_r($sale_id);
@@ -65,7 +68,7 @@
 
 				$sale_id = mysqli_query($conn,"SELECT id FROM salerequest WHERE seller = '".$seller."' AND brand = '".$brand."' AND gear = '".$gear."' AND colour = '".$colour." AND description = '".$description."' AND quality = '".$quality."' AND price = '".$price."'");//Fetch the id of the above entry
 				$sale_id = mysqli_fetch_object($sale_id);
-				print_r($sale_id);
+				//print_r($sale_id);
 
 				mysqli_query($conn,"UPDATE salerequest SET deleted = '1' WHERE id ='".$sale_id->id."'"); //Set deleted = true for the verified book in salerequest
 			}
@@ -76,11 +79,14 @@
 
 				$sale_id = mysqli_query($conn,"SELECT id FROM salerequest WHERE seller = '".$seller."' AND name = '".$name."' AND description = '".$description."' AND quality = '".$quality." AND price = '".$price."'");//Fetch the id of the above entry
 				$sale_id = mysqli_fetch_object($sale_id);
-				print_r($sale_id);
+				//print_r($sale_id);
 
 				mysqli_query($conn,"UPDATE salerequest SET deleted = '1' WHERE id ='".$sale_id->id."'"); //Set deleted = true for the verified book in salerequest
 			}
 			//print_r($result);
+			
+			//IMAGE REDIRECTION
+			rename("images/salereq/salereq_".$sale_id->id,"images/".$_POST["category"]."/".$_POST["category"]."_".$img->id->last_id);
 			
 			header("Location: ".$redirect_to_admin_main);//Send back to admin_main.php
 		}

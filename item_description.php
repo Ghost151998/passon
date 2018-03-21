@@ -45,6 +45,17 @@
 				Description:<?php echo $row->description; ?><br>
 				Quality:<?php echo $row->quality; ?><br>
 				Price:<?php echo $row->price; ?><br>
+
+				<?php
+					$img_path = "images/books/books_".$row['id'];
+					$img_src = $img_path.".*";
+					$result = glob($img_src);
+					$extension = strtolower(pathinfo($result[0],PATHINFO_EXTENSION));
+					$img_path .= (".".$extension);
+				 ?>
+				 Image:
+				<td><image src="<?php echo $img_path?>" name="item_image" height="200" width="320" required></td>
+
 				<?php echo "<a href='cart_add_item.php?category=".$_GET["category"]."&item_id=".$row->id."'>Add to Cart</a>" ?>
 					<!--name+= _book_'.<?phpecho $row->id ?>.' -->
 				</form>
@@ -71,6 +82,17 @@
 				Description:<?php echo $row->description; ?><br>
 				Quality:<?php echo $row->quality; ?><br>
 				Price:<?php echo $row->price; ?><br>
+
+				<?php
+					$img_path = "images/bikes/bikes_".$row['id'];
+					$img_src = $img_path.".*";
+					$result = glob($img_src);
+					$extension = strtolower(pathinfo($result[0],PATHINFO_EXTENSION));
+					$img_path .= (".".$extension);
+				 ?>
+				 Image:
+				<td><image src="<?php echo $img_path?>" name="item_image" height="200" width="320" required></td>
+
 				<?php echo "<a href='cart_add_item.php?category=".$_GET["category"]."&item_id=".$row->id."'>Add to Cart</a>" ?>
 					<!--name+= _book_'.<?phpecho $row->id ?>.' -->
 				</form>
@@ -95,6 +117,17 @@
 				Description:<?php echo $row->description; ?><br>
 				Quality:<?php echo $row->quality; ?><br>
 				Price:<?php echo $row->price; ?><br>
+
+				<?php
+					$img_path = "images/misc/misc_".$row['id'];
+					$img_src = $img_path.".*";
+					$result = glob($img_src);
+					$extension = strtolower(pathinfo($result[0],PATHINFO_EXTENSION));
+					$img_path .= (".".$extension);
+				 ?>
+				 Image:
+				<td><image src="<?php echo $img_path?>" name="item_image" height="200" width="320" required></td>
+
 				<?php echo "<a href='cart_add_item.php?category=".$_GET["category"]."&item_id=".$row->id."'>Add to Cart</a>" ?>
 					<!--name+= _book_'.<?phpecho $row->id ?>.' -->
 				</form>

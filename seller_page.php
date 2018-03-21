@@ -1,6 +1,5 @@
 <?php 
 	session_start();
-	print_r($_SESSION);
 	include ("dbconfig.php");
 	include ("test_variables.php");
 	
@@ -18,7 +17,7 @@
 	</head>
 	<body>
 		<h3>Item Details</h3>
-		<form action="sell_request_verification.php" method="post">
+		<form action="sell_request_verification.php" method="post" enctype='multipart/form-data'><!-- This form uses upload script so it is necessary to include the enctype -->
 			
 			Item Category:<br><br>
 			<input type="radio" name="category" value="books" checked>Books<br>
@@ -102,7 +101,10 @@
 				<option value="poor">Poor</option>
 			</select>
 			<br><br>
-
+			Image:<br>
+			<input type="hidden" name="MAX_FILE_SIZE" value="1048576" />
+			<input type="file" name="item_image" accept="image/jpg, image/jpeg image/png">
+			<br><br>
 			Price:<br>
 				<input type="text" name="price" required>
 				<br><br>

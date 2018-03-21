@@ -49,6 +49,17 @@
 							Title :<?php echo $row['title']; ?><br>
 							Edition :<?php echo $row['edition']; ?><br>
 							Price :<?php echo $row['price']; ?><br>
+
+							<?php
+								$img_path = "images/books/books_".$row['id'];
+								$img_src = $img_path.".*";
+								$result = glob($img_src);
+								$extension = strtolower(pathinfo($result[0],PATHINFO_EXTENSION));
+								$img_path .= (".".$extension);
+							 ?>
+							 Image:
+							<td><image src="<?php echo $img_path?>" name="item_image" height="200" width="320" required></td>
+
 							<?php echo "<a href='item_description.php?category=".urlencode($_GET["category"])."&item_id=".urlencode($row["id"])."'>View</a>" ?>
 					<?php 
 					}
@@ -78,6 +89,17 @@
 							Title :<?php echo $row['title']; ?><br>
 							Edition :<?php echo $row['edition']; ?><br>
 							Price :<?php echo $row['price']; ?><br>
+
+							<?php
+								$img_path = "images/books/books_".$row['id'];
+								$img_src = $img_path.".*";
+								$result = glob($img_src);
+								$extension = strtolower(pathinfo($result[0],PATHINFO_EXTENSION));
+								$img_path = $img_path.".".$extension;
+							 ?>
+							 Image:
+							<td><image src="<?php echo $img_path?>" name="item_image" height="200" width="320" required></td>
+
 							<?php echo "<a href='item_description.php?category=".urlencode($_GET["category"])."&item_id=".urlencode($row["id"])."'>View</a>" ?>
 						<?php 
 						} //all results of a semester
@@ -97,6 +119,17 @@
 				Gear :<?php echo $row['gear']?><br>
 				Colour :<?php echo $row['colour']?><br>
 				Price :<?php echo $row['price']?><br>
+
+				<?php
+					$img_path = "images/bikes/bikes_".$row['id'];
+					$img_src = $img_path.".*";
+					$result = glob($img_src);
+					$extension = strtolower(pathinfo($result[0],PATHINFO_EXTENSION));
+					$img_path .= (".".$extension);
+				 ?>
+				 Image:
+				<td><image src="<?php echo $img_path?>" name="item_image" height="200" width="320" required></td>
+
 				<?php echo "<a href='item_description.php?category=".urlencode($_GET["category"])."&item_id=".urlencode($row["id"])."'>View</a>" ?>
 			<?php
 			}
@@ -107,6 +140,17 @@
 			while($row = mysqli_fetch_assoc($results)){?>
 				Name :<?php echo $row['name']?><br>
 				Price :<?php echo $row['price']?><br>
+
+				<?php
+					$img_path = "images/misc/misc_".$row['id'];
+					$img_src = $img_path.".*";
+					$result = glob($img_src);
+					$extension = strtolower(pathinfo($result[0],PATHINFO_EXTENSION));
+					$img_path .= (".".$extension);
+				 ?>
+				 Image:
+				<td><image src="<?php echo $img_path?>" name="item_image" height="200" width="320" required></td>
+
 				<?php echo "<a href='item_description.php?category=".urlencode($_GET["category"])."&item_id=".urlencode($row["id"])."'>View</a>" ?>
 				<?php 
 			}//if category is misc
